@@ -25,14 +25,36 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
-
 group :development do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', :platform => %i[mri mingw x64_mingw]
+
+  # Debugger
+  gem 'debase', '~> 0.2.1'
+
   # Process runner
   gem 'foreman'
+
+  # Git hooks
+  gem 'overcommit'
+
+  # Enforce code style using Rubocop
+  gem 'rubocop', :require => false
+
+  # Check for vulnerable versions of gems
+  gem 'bundler-audit', :require => false
+
+  # Detect code smells
+  gem 'reek', :require => false
+
+  # Analyze potential speed improvements
+  gem 'fasterer', :require => false
+
+  # Check for valid JSON syntax
+  gem 'json', :require => false
+
+  # Security vulnerability scanner
+  gem 'brakeman', :require => false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

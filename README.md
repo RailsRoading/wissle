@@ -24,6 +24,16 @@ $ yarn install
 
 ### Execution
 
+Run the Rails and the webpack server
+
 ```
 $ foreman start
+```
+
+### Development
+
+Enable automated code style checking
+
+```
+$ overcommit --install
 ```

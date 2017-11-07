@@ -26,6 +26,8 @@ class User < ApplicationRecord
   ##
   # Callbacks
   #
+  after_initialize :generate_uuid
+
   ##
   # Methods
   #
@@ -35,4 +37,11 @@ class User < ApplicationRecord
   ##
   # Helpers and callback methods
   #
+  private
+
+  def generate_uuid
+    return if uuid?
+
+    self.uuid = SecureRandom.uuid
+  end
 end

@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  ##
+  # API endpoints
+  #
+  scope :api, :constraints => { :format => :json } do
+    # /api/users
+    resources :users, :only => %i[create show update]
+  end
 end

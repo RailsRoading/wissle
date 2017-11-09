@@ -7,16 +7,22 @@ import store from 'store'
 
 import './App.css'
 
+import Framework from 'components/pages/Framework'
 import Home from 'components/pages/Home'
+
+import Details from 'components/pages/profile/Details'
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={Home} />
-          </Switch>
+          <Framework>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/details" component={Details} />
+            </Switch>
+          </Framework>
         </BrowserRouter>
       </Provider>
     )

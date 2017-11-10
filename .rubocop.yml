@@ -12,6 +12,10 @@ Metrics/LineLength:
     - db/**/*.rb
     - spec/**/*.rb
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
 Style/HashSyntax:
   EnforcedStyle: hash_rockets
 

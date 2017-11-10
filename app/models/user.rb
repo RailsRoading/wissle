@@ -18,7 +18,8 @@ class User < ApplicationRecord
 
   validates :username,
             :presence => true,
-            :format => { :with => /\A[A-Za-z0-9]+\Z/i }
+            :format => { :with => /\A[A-Za-z0-9]+\Z/i },
+            :length => { :in => 2..20 }
 
   validates :age,
             :numericality => { :greater_than_or_equal_to => 18, :less_than_or_equal_to => 99 }

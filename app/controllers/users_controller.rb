@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :authenticate!, :except => :create
+
   # POST /
   def create
     @resource = User.new user_params
@@ -23,6 +25,9 @@ class UsersController < ApplicationController
   # PUT/PATCH /:id
   def update
     @resource = User.find params[:id]
+
+    # Allow current_user only to update his/her own account
+    return head :forbidden unless @resource && @resource == current_user
 
     if @resource.update user_params
       render :show

@@ -45,7 +45,7 @@ class WisslesController < ApplicationController
   private
 
   def wissle_params
-    params.require(:wissle).permit :user_id,
+    params.require(:data).permit :user_id,
                                    :text,
                                    :longitude,
                                    :latitude

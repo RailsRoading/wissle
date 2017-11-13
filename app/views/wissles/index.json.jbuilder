@@ -1,1 +1,1 @@
-json.array! @resource, partial: 'wissles/wissle', as: :wissle
+json.array! @resources, partial: 'wissles/wissle', as: :wissle

@@ -14,7 +14,7 @@ class Wissle < ApplicationRecord
 
   validates :latitude,
             :presence => true
-            
+
   ##
   # Callbacks
   #

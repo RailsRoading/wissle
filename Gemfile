@@ -58,5 +58,28 @@ group :development do
   gem 'brakeman', :require => false
 end
 
+group :test do
+  # Behaviour-driven testing
+  gem 'rspec'
+  gem 'rspec-rails'
+
+  # Rails RSpec matchers
+  gem 'shoulda-matchers', :git => 'https://github.com/thoughtbot/shoulda-matchers.git', :branch => 'rails-5'
+
+  # Factory pattern for testing
+  gem 'factory_bot'
+  gem 'factory_bot_rails'
+
+  # Fake data generator
+  gem 'faker'
+
+  # Reset database
+  gem 'database_cleaner'
+
+  # Coverage
+  gem 'coveralls'
+  gem 'simplecov'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', :platforms => %i[mingw mswin x64_mingw jruby]

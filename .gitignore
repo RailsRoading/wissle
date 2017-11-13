@@ -20,3 +20,6 @@
 .byebug_history
 
 .idea
+
+# Coverage report
+coverage/

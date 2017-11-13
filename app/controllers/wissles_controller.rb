@@ -5,7 +5,7 @@ class WisslesController < ApplicationController
 
   # GET /wissles
   def index
-    @resource = Wissle.all
+    @resources = Wissle.all
 
     render :index
   end
@@ -28,26 +28,23 @@ class WisslesController < ApplicationController
     render :show
   end
 
-  # PUT/PATCH /:id
-  def update
+  # post /:id
+  def destroy
     @resource = Wissle.find params[:id]
 
     # Allow current_user only to update his/her own wissles
     return head :forbidden unless @resource && @resource.user == current_user
+    @resource.destroy!
 
-    if @resource.update wissle_params
-      render :show
-    else
-      render :show, :status => :unprocessable_entity
-    end
+    head :no_content
   end
 
   private
 
   def wissle_params
     params.require(:data).permit :user_id,
-                                   :text,
-                                   :longitude,
-                                   :latitude
+                                 :text,
+                                 :longitude,
+                                 :latitude
   end
 end

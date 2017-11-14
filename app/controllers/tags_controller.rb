@@ -2,7 +2,7 @@
 
 class TagsController < ApplicationController
   before_action :authenticate!
-  before_action :set_tag, only: [:show, :destroy]
+  before_action :set_tag, :only => %i[show destroy]
 
   # GET /tags
   def index
@@ -12,7 +12,7 @@ class TagsController < ApplicationController
 
   # GET /:id
   def show
-  # set_tag
+    # set_tag
     render :show
   end
 
@@ -29,7 +29,7 @@ class TagsController < ApplicationController
 
   # post /:id ---but its not a feature for user to delete tags.
   def destroy
-  # set_tag
+    # set_tag
   end
 
   private

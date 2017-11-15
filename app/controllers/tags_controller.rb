@@ -2,7 +2,6 @@
 
 class TagsController < ApplicationController
   before_action :authenticate!
-  before_action :set_tag, :only => %i[show destroy]
 
   # GET /tags
   def index
@@ -12,7 +11,7 @@ class TagsController < ApplicationController
 
   # GET /:id
   def show
-    # set_tag
+    @resource = Tag.find(params[:id])
     render :show
   end
 
@@ -27,16 +26,7 @@ class TagsController < ApplicationController
     end
   end
 
-  # post /:id ---but its not a feature for user to delete tags.
-  def destroy
-    # set_tag
-  end
-
   private
-
-  def set_tag
-    @resource = Tag.find(params[:id])
-  end
 
   def tag_params
     params.require(:tag).permit(:user_id, :title)

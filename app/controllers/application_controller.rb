@@ -5,6 +5,8 @@ class ApplicationController < ActionController::API
 
   before_action :ensure_json_request
 
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
+
   protected
 
   ##
@@ -21,5 +23,12 @@ class ApplicationController < ActionController::API
   def ensure_json_request
     return if request.format == :json
     head :not_acceptable
+  end
+
+  ##
+  # Render 404 errors
+  #
+  def render_not_found
+    render :json => { :errors => ["resource with id '#{params[:id]}' not found"] }, :status => :not_found
   end
 end

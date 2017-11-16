@@ -1,0 +1,13 @@
+language: ruby
+cache:
+  bundler: true
+rvm:
+- 2.4.2
+before_script:
+- bundle exec rails db:create
+- bundle exec rails db:migrate
+script:
+- bundle exec rspec
+notifications:
+  slack:
+    secure: TGmvf05ja9ryCATLDnAQhYXVR7fy66hwEtf37dBA2PNQVS+RevoGL5sCIkcEaWzw9QEAz2PRWu7tFZwYnrAu3vVEW9N7JyNu8K2e2rhqz/vwrjTuAqVgbVNBybYa/JK5nwVU9AqZ7hMmnhixGizOqV1yC1GN4R0eXhl69ETPDI9VNS/72OEOnORM0bCoJXR4JgUekeT6EdlYs79t3NU/6oTPNXIgVqV8fgIdZw+X96gsn9bd8sJoHwT2CFCyzSiR1h3dbTIIa1ZntT62CHOY/cOm4X2rCdg0dqfITwlExBZTH2jhumD82c3YvALsBLIKurxreXVK1hquhjyjcbtk6mSRs9wpl0kA/ens1CzRUNnxVAcAzhrn7GlHknYoDF/O0nwcE95tWgiO4luUvJ0G3ZwDjiagAUjNhkOYGGYiK9aYi8zF6IGfSwrueaqNs+8T7stBowRXb5j8uSysZrdKem1Q94/L3ZjqTVWWQpYDulVNCZkxBXNAswoqzj19u1JlEb6FtFkgZDj+kp6Livo4SeziWJTaJ0ilM89G9HxvOuAfRnP+TP8W16OPA8up5bIjFtwONuZXsE54s4r665iDeTKuBIQ2uKVdaeuJLPHq8M1aRb8YeHG8lK6ULCsdAGd/S3V4SFe3/L1DSE9ToMr/M8bXKZuvDML4DYzY0tJXxXE=

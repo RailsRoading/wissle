@@ -3,8 +3,24 @@ cache:
   bundler: true
 rvm:
 - 2.4.2
+env:
+- RAILS_ENV=test
+services:
+  - postgresql
+addons:
+  postgresql: 9.5
+  apt:
+    packages:
+    - postgresql-9.5-postgis-2.3
 before_script:
-- bundle exec rails db:create
+- psql -U postgres -c "CREATE EXTENSION postgis"
+- psql -U postgres -c "CREATE EXTENSION postgis_topology"
+- psql -U postgres -c "CREATE EXTENSION fuzzystrmatch"
+- psql -U postgres -c "CREATE EXTENSION address_standardizer"
+- psql -U postgres -c "CREATE EXTENSION address_standardizer_data_us"
+- psql -U postgres -c "CREATE EXTENSION postgis_tiger_geocoder"
+- cp config/database.travis.yml config/database.yml
+- psql -U postgres -c 'create database travis_ci_test;'
 - bundle exec rails db:migrate
 script:
 - bundle exec rspec

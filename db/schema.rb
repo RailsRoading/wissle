@@ -12,6 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20171123122141) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "postgis"
+
   create_table "categories", force: :cascade do |t|
     t.text "title"
     t.datetime "created_at", null: false
@@ -20,8 +24,8 @@ ActiveRecord::Schema.define(version: 20171123122141) do
 
   create_table "comments", force: :cascade do |t|
     t.text "text"
-    t.integer "user_id"
-    t.integer "wissle_id"
+    t.bigint "user_id"
+    t.bigint "wissle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_comments_on_user_id"
@@ -29,7 +33,8 @@ ActiveRecord::Schema.define(version: 20171123122141) do
   end
 
   create_table "interests", force: :cascade do |t|
-    t.integer "tag_id"
+    t.bigint "tag_id"
+    t.bigint "wissle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -38,8 +43,8 @@ ActiveRecord::Schema.define(version: 20171123122141) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "wissle_id"
+    t.bigint "user_id"
+    t.bigint "wissle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
@@ -63,12 +68,12 @@ ActiveRecord::Schema.define(version: 20171123122141) do
 
   create_table "wissles", force: :cascade do |t|
     t.text "text"
-    t.float "longitude"
-    t.float "latitude"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.index ["user_id"], name: "index_wissles_on_user_id"
   end
 
+  add_foreign_key "wissles", "users"
 end

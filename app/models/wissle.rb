@@ -25,10 +25,7 @@ class Wissle < ApplicationRecord
             :presence => true,
             :length => { :in => 2..200 }
 
-  validates :longitude,
-            :presence => true
-
-  validates :latitude,
+  validates :location,
             :presence => true
 
   ##

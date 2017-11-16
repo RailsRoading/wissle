@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     # Tags
     #
     resources :tags, :only => %i[create index show]
+    # /api/pulse
+    resource :pulse, :only => %i[create]
   end
 end

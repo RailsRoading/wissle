@@ -1,0 +1,8 @@
+if tag.errors.any?
+  json.errors tag.errors.full_messages
+else
+  json.data do
+    json.id tag.id
+    json.title tag.title if tag.title
+  end
+end

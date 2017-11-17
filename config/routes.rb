@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :users, :only => %i[create show update]
     # /api/wissles
     resources :wissles, :only => %i[create show destroy index]
+    # /api/tags
+    resources :tags, only => %i[create index show]
   end
 end

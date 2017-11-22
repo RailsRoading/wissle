@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     # /api/wissles
     resources :wissles, :only => %i[create show destroy index]
     # /api/tags
-    resources :tags, only => %i[create index show]
+    resources :tags, :only => %i[create index show]
   end
 end

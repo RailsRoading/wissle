@@ -7,6 +7,10 @@ class User < ApplicationRecord
   ##
   # Associations
   #
+  has_many :wissle
+  has_many :tag, :through => :interest
+  has_many :wissle, :through => :comment
+  has_many :wissle, :through => :subscription
 
   ##
   # Validations

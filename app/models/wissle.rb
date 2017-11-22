@@ -4,10 +4,10 @@ class Wissle < ApplicationRecord
   ##
   # Associations
   #
-  belongs_to :user
+  belongs_to :users
   has_one :category
-  has_many :user, :through => :comment
-  has_many :user, :through => :subscription
+  has_many :commented_users, :through => :comment, :class_name => 'User'
+  has_many :subscribed_users, :through => :subscription, :class_name => 'User'
 
   ##
   # Validations

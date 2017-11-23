@@ -4,6 +4,7 @@ class Tag < ApplicationRecord
   ##
   # Associations
   #
+  has_many :interests
   has_many :users, :through => :interests
   ##
   # Validations

@@ -36,7 +36,7 @@ ActiveRecord::Base.transaction do
     location = AALBORG_LOCATIONS.sample
 
     Wissle.create :user => User.offset(rand(User.count)).first,
-                  :location => factory.point(location[:latitude], location[:longitude]),
+                  :location => factory.point(location[:longitude], location[:latitude]),
                   :text => Faker::Lorem.words(5).join(' ')
   end
 end

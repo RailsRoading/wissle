@@ -5,8 +5,8 @@ if wissle.errors.any?
 else
   json.data do
     json.id wissle.id
-    json.longitude wissle.longitude
-    json.latitude wissle.latitude
+    json.longitude wissle.location.longitude
+    json.latitude wissle.location.latitude
     json.text wissle.text
   end
 end

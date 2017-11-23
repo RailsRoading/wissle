@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     ##
     # Wissles
     #
-    resources :wissles, :only => %i[create show destroy index] do
+    resources :wissles, :only => %i[create show destroy] do
       resources :comments, :only => %i[create destroy index]
     end
 
@@ -21,7 +21,10 @@ Rails.application.routes.draw do
     # Tags
     #
     resources :tags, :only => %i[create index show]
-    # /api/pulse
+
+    ##
+    # Pulse
+    #
     resource :pulse, :only => %i[create]
   end
 end

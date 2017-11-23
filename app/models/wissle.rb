@@ -34,7 +34,11 @@ class Wissle < ApplicationRecord
   ##
   # Methods
   #
-  ##
+  scope :near, lambda { |latitude, longitude, distance|
+    where "ST_Distance(location,'POINT(#{longitude} #{latitude})') < #{distance}"
+  }
+
+  #
   # Overrides
   #
   ##

@@ -20,8 +20,7 @@ class Pulse
   # Associations
   #
   def wissles
-    # TODO: Return list of nearby Wissles
-    []
+    @wissles ||= Wissle.near @latitude, @longitude, Rails.application.config.wissle[:radius]
   end
 
   ##

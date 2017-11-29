@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Button } from 'react-foundation'
 import MyMapComponent from 'components/MyMapComponent'
+import '../../zurbFoundation/css/foundation.css'
+//import '../../zurbFoundation/js/vender/foundation.js'
 import '../../index.css'
 
 import { Link } from 'react-router-dom'
@@ -17,6 +19,11 @@ export default class Home extends Component {
           containerElement={<div style={{ height: `500px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
+
+        <div class="button-group-option" data-grouptype="OR">
+          <a href="#" class="button success radius">Buy it now</a>
+          <a href="#" class="button primary radius">Learn More</a>
+        </div>
       {/*<Link to="/details"><Button>Details</Button></Link>*/}
       </div>
     );

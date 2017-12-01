@@ -17,7 +17,6 @@ export default class Home extends Component {
           mapElement={<div style={{ height: `100%` }} />}
         />
 
-        <button class="button button-rounded-hover">Hover Button</button>
       </div>
 
     );

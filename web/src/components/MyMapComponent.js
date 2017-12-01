@@ -1,18 +1,28 @@
 import React from "react"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, FusionTablesLayer } from "react-google-maps"
 
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={15}
     defaultCenter={{ lat: 57.049515, lng: 9.916286 }}
   >
-    {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} onClick={props.onMarkerClick} />}
-  </GoogleMap>
+    {props.isMarkerShown && <Marker position={{ lat: 57.049515, lng: 9.916286 }} onClick={props.onMarkerClick} />}
+
+    <FusionTablesLayer
+      url="http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml"
+      options={{
+        query: {
+          select: `Geocodable address`,
+          from: `1mZ53Z70NsChnBMm-qEYmSDOvLXgrreLTkQUvvg`
+        }
+      }}
+      />
+    </GoogleMap>
 ))
 
 class MyFancyComponent extends React.PureComponent {
   state = {
-    isMarkerShown: false,
+    isMarkerShown: true,
   }
 
   componentDidMount() {
@@ -26,7 +36,7 @@ class MyFancyComponent extends React.PureComponent {
   }
 
   handleMarkerClick = () => {
-    this.setState({ isMarkerShown: false })
+    this.setState({ isMarkerShown: true })
     this.delayedShowMarker()
   }
 

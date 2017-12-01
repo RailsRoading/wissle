@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-foundation'
 import MyMapComponent from 'components/MyMapComponent'
-import '../../zurbFoundation/css/foundation.css'
-//import '../../zurbFoundation/js/vender/foundation.js'
-import '../../index.scss'
 
 import { Link } from 'react-router-dom'
 
@@ -19,7 +16,10 @@ export default class Home extends Component {
           containerElement={<div style={{ height: `500px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
+
+        <button class="button button-rounded-hover">Hover Button</button>
       </div>
+
     );
   }
 }

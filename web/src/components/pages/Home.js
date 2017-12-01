@@ -3,7 +3,7 @@ import { Button } from 'react-foundation'
 import MyMapComponent from 'components/MyMapComponent'
 import '../../zurbFoundation/css/foundation.css'
 //import '../../zurbFoundation/js/vender/foundation.js'
-import '../../index.css'
+import '../../index.scss'
 
 import { Link } from 'react-router-dom'
 

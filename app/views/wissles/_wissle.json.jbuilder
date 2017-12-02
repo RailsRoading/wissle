@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if wissle.errors.any?
   json.errors wissle.errors.full_messages
 else

@@ -36,3 +36,36 @@ export function getTags() {
     })
   }
 }
+
+/**
+ * Location actions
+ *
+ */
+export function setLocation(data) {
+  return {
+    type: ActionTypes.SET_LOCATION,
+    data,
+  }
+}
+
+export function clearLocation() {
+  return {
+    type: ActionTypes.CLEAR_LOCATION,
+  }
+}
+
+export function acquireLocation() {
+  return function(dispatch) {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        dispatch(setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude }))
+      })
+    } else {
+      dispatch(clearLocation())
+    }
+  }
+
+  return {
+    type: ActionTypes.ACQUIRE_LOCATION,
+  }
+}

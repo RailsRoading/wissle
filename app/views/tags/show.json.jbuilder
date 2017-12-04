@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if @resource.errors.any?
   json.errors @resource.errors.full_messages
 else

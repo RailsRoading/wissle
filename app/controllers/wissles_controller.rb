@@ -33,7 +33,7 @@ class WisslesController < ApplicationController
     @resource = Wissle.find params[:id]
 
     # Allow current_user only to update his/her own wissles
-    return head :forbidden unless @resource && @resource.user == current_user
+    return head :forbidden unless @resource&.user == current_user
     @resource.destroy!
 
     head :no_content

@@ -30,7 +30,7 @@ class User extends Component {
     }
 
     onClickSave() {
-        this.props.actions.createUser(this.state.user);
+        this.props.actions.saveUser(this.state.user);
     }
 
     userRow(user, index) {

@@ -16,6 +16,7 @@ import Home from 'components/pages/Home'
 import User from 'components/pages/User/User'
 
 import TermsOfService from 'components/pages/TermsOfService'
+import Geolocation from 'components/pages/geolocation/Geolocation'
 
 export default class App extends Component {
   render() {
@@ -28,6 +29,7 @@ export default class App extends Component {
               <Route exact path="/user" component={User} />
 
               <Route exact path="/tos" component={TermsOfService} />
+              <Route exact path="/geolocation" component={Geolocation} />
             </Switch>
           </Framework>
         </BrowserRouter>

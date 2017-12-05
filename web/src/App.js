@@ -24,7 +24,6 @@ export default class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/details" component={Details} />
               <Route exact path="/user" component={User} />
-              <Route exact path="/user/:id" component={User} />
             </Switch>
           </Framework>
         </BrowserRouter>

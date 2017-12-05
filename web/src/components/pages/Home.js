@@ -16,7 +16,8 @@ export default class Home extends Component {
           containerElement={<div style={{ height: `500px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
-
+        <Link to="/details"><Button>Details</Button></Link>
+        <Link to="/user"><Button>User</Button></Link>
       </div>
 
     );

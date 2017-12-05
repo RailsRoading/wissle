@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
+import 'typeface-berkshire-swash'
+
 import store from 'store'
 
 import './App.css'

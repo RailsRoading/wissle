@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
-import { PropTypes } from 'react';
+import React, { Component } from 'react'
+import { PropTypes } from 'react'
 
 export default class UserView extends Component {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
     this.state = {
       user: { username: "", age: "" }
-    };
+    }
 
-    this.onUserNameChange = this.onUserNameChange.bind(this);
-    this.onUserAgeChange = this.onUserAgeChange.bind(this);
-    this.onClickSave = this.onClickSave.bind(this);
+    this.onUserNameChange = this.onUserNameChange.bind(this)
+    this.onUserAgeChange = this.onUserAgeChange.bind(this)
+    this.onClickSave = this.onClickSave.bind(this)
   }
   onUserNameChange(event) {
-    const user = this.state.user;
-    user.username = event.target.value;
-    this.setState({ user: user });
+    const user = this.state.user
+    user.username = event.target.value
+    this.setState({ user: user })
   }
   onUserAgeChange(event) {
-    const user = this.state.user;
-    user.age = event.target.value;
-    this.setState({ user: user });
+    const user = this.state.user
+    user.age = event.target.value
+    this.setState({ user: user })
   }
   onClickSave() {
-    this.props.actions.saveUser(this.state.user);
+    this.props.actions.saveUser(this.state.user)
   }
   render() {
     return (
@@ -45,6 +45,6 @@ export default class UserView extends Component {
           value="Save"
           onClick={this.onClickSave} />
       </div>
-    );
+    )
   }
 }

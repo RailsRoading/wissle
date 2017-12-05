@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:data).permit :username,
-                                 :age
+                                 :age,
+                                 :tags
   end
 end

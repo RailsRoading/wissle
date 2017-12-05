@@ -1,9 +1,16 @@
+/**
+ * index.scss - app stylesheet
+ *
+ */
+
+@import "variables";
+
 html {
-  background-color: #8D1717;
+  background-color: $color-primary;
 }
 
 .pageDiv {
-  background-color: #8D1717;
+  background-color: $color-primary;
   width: 100%;
   padding: 0 2px 0 2px;
 }

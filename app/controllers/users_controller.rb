@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @resource = User.find params[:id]
 
     # Allow current_user only to update his/her own account
-    return head :forbidden unless @resource && @resource == current_user
+    return head :forbidden unless current_user && @resource == current_user
 
     if @resource.update user_params
       render :show
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit :username,
+    params.require(:data).permit :username,
                                  :age
   end
 end

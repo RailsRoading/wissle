@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,6 +56,29 @@ group :development do
 
   # Security vulnerability scanner
   gem 'brakeman', :require => false
+end
+
+group :test do
+  # Behaviour-driven testing
+  gem 'rspec'
+  gem 'rspec-rails'
+
+  # Rails RSpec matchers
+  gem 'shoulda-matchers', :git => 'https://github.com/thoughtbot/shoulda-matchers.git', :branch => 'rails-5'
+
+  # Factory pattern for testing
+  gem 'factory_bot'
+  gem 'factory_bot_rails'
+
+  # Fake data generator
+  gem 'faker'
+
+  # Reset database
+  gem 'database_cleaner'
+
+  # Coverage
+  gem 'coveralls'
+  gem 'simplecov'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

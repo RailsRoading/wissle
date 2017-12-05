@@ -7,6 +7,9 @@ class User < ApplicationRecord
   ##
   # Associations
   #
+  has_many :wissles
+  has_many :commented_wissles, :through => :comments, :class_name => 'Wissle'
+  has_many :subscribed_wissles, :through => :subscriptions, :class_name => 'Wissle'
 
   ##
   # Validations

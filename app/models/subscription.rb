@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
-class Tag < ApplicationRecord
+class Subscription < ApplicationRecord
   ##
   # Associations
   #
-  has_many :users, :through => :interests
+  belongs_to :user
+  belongs_to :wissle
   ##
   # Validations
   #
-  validates :title,
-            :presence => true
   ##
   # Callbacks
   #

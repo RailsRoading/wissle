@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-class Tag < ApplicationRecord
+class Category < ApplicationRecord
   ##
   # Associations
   #
-  has_many :users, :through => :interests
+  has_many :wissles
   ##
   # Validations
   #
-  validates :title,
-            :presence => true
   ##
+  validates :title,
+            :uniqueness => true
   # Callbacks
   #
   ##

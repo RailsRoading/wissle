@@ -1,4 +1,5 @@
 import delay from './delay';
+import config from 'config'
 
 class UserApi {
 
@@ -8,7 +9,7 @@ class UserApi {
 
             setTimeout(() => {
 
-                fetch("http://localhost:3000/api/users/", {
+                fetch(`${config.API_ENDPOINT}/api/users`, {
                     method: "post",
                     headers: {
                         'Accept': 'application/json',

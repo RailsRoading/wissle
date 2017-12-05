@@ -23,7 +23,7 @@ yarn-error.log*
 package-lock.json
 
 # Compiled CSS
-App.css
+*.css
 
 # IDE files
 .idea

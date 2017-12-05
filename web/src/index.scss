@@ -5,8 +5,10 @@
 
 @import "variables";
 
-html {
+html,
+body {
   background-color: $color-primary;
+  color: white;
 }
 
 .pageDiv {

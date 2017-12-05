@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import store from 'store'
 
 import './App.css'
+import './index.css'
 
 import Framework from 'components/pages/Framework'
 import Home from 'components/pages/Home'

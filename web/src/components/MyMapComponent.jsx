@@ -20,19 +20,9 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
     </GoogleMap>
 ))
 
-class MyFancyComponent extends React.PureComponent {
+class MyMarkerComponent extends React.PureComponent {
   state = {
     isMarkerShown: true,
-  }
-
-  componentDidMount() {
-    this.delayedShowMarker()
-  }
-
-  delayedShowMarker = () => {
-    setTimeout(() => {
-      this.setState({ isMarkerShown: true })
-    }, 3000)
   }
 
   handleMarkerClick = () => {

@@ -5,6 +5,6 @@ if tag.errors.any?
 else
   json.data do
     json.id tag.id
-    json.title tag.title if tag.title
+    json.title tag.title
   end
 end

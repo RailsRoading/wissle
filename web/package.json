@@ -61,6 +61,7 @@
     "style-loader": "0.18.2",
     "sugar": "^2.0.4",
     "sw-precache-webpack-plugin": "0.11.4",
+    "typeface-berkshire-swash": "^0.0.44",
     "url-loader": "0.5.9",
     "webpack": "3.5.1",
     "webpack-dev-server": "2.7.1",

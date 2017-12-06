@@ -10,7 +10,8 @@ class Tag < ApplicationRecord
   # Validations
   #
   validates :title,
-            :presence => true
+            :presence => true,
+            :length => { :in => 2..30 }
   ##
   # Callbacks
   #

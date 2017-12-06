@@ -9,6 +9,9 @@ class Comment < ApplicationRecord
   ##
   # Validations
   #
+  validates :text,
+            :presence => true,
+            :length => { :in => 2..500 }
   ##
   # Callbacks
   #

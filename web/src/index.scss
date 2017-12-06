@@ -11,14 +11,13 @@ body {
   color: white;
 }
 
-.pageDiv {
-  background-color: $color-primary;
-  width: 100%;
-  padding: 0 2px 0 2px;
+.grid-home {
+  height: 100vh;
+  padding: 1px 1px 3px 1px;
 }
 
 .WissleLogo {
-  width: 35%;
-  margin: 1em 1em 1em 2px;
-  font-family: Berkshire Swash;
+  margin: 2px;
+  font-family: 'Berkshire Swash';
+  font-size: 4em;
 }

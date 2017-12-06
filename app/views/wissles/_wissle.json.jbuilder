@@ -7,6 +7,6 @@ else
     json.id wissle.id
     json.longitude wissle.longitude
     json.latitude wissle.latitude
-    json.text wissle.text if wissle.text
+    json.text wissle.text
   end
 end

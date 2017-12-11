@@ -13,7 +13,21 @@ export function get(endpoint, uuid) {
   })
 }
 
-export function post(endpoint, body) {
+export function post(endpoint, body, uuid) {
+  return fetch(`${config.API_ENDPOINT}${endpoint}`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': uuid,
+    },
+    body: JSON.stringify(body),
+  }).then((response) => {
+    return response.json()
+  })
+}
+
+export function postUnauth(endpoint, body) {
   return fetch(`${config.API_ENDPOINT}${endpoint}`, {
     method: 'POST',
     headers: {

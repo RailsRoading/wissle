@@ -1,5 +1,6 @@
 import UserApi from 'api/UserApi'
 import TagApi from 'api/TagApi'
+import WissleApi from 'api/WissleApi'
 
 import * as ActionTypes from 'actions/ActionTypes'
 import { beginAjaxCall, ajaxCallError } from 'actions/ajaxStatusActions'
@@ -8,6 +9,8 @@ import { beginAjaxCall, ajaxCallError } from 'actions/ajaxStatusActions'
  * ActionCreators to handle state mutation
  */
 export function createUserSuccess(user) { return { type: ActionTypes.CREATE_USER_SUCCESS, user } }
+export function createWissleSuccess(wissle) { return { type: ActionTypes.CREATE_WISSLE_SUCCESS, wissle } }
+
 export function getTagsSuccess(tags) { return { type: ActionTypes.GET_TAGS_SUCCESS, tags } }
 
 /**
@@ -53,10 +56,10 @@ export function clearLocation() {
 }
 
 export function acquireLocation() {
-  return function(dispatch) {
+  return function (dispatch) {
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        dispatch(setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude }))
+      navigator.geolocation.getCurrentPosition(function (position) {
+        dispatch(setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude}))
       })
     } else {
       dispatch(clearLocation())
@@ -65,5 +68,17 @@ export function acquireLocation() {
 
   return {
     type: ActionTypes.ACQUIRE_LOCATION,
+  }
+}
+
+export function saveWissle(wissle) {
+  return function (dispatch, getState) {
+    dispatch(beginAjaxCall())
+    return WissleApi.saveWissle(wissle).then(wissle => {
+      dispatch(createWissleSuccess(wissle))
+    }).catch(error => {
+      dispatch(ajaxCallError(error))
+      throw(error)
+    })
   }
 }

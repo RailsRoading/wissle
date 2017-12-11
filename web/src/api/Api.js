@@ -59,6 +59,7 @@ export function postUnauth(endpoint, body) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Authorization': '2071d589-001e-498b-a4f9-73b0af3ff804',
     },
     body: JSON.stringify(body),
   })

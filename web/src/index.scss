@@ -8,7 +8,7 @@
 html,
 body {
   background-color: $color-primary;
-  color: white;
+  color: #ffffff;
 }
 
 .grid-home {
@@ -16,7 +16,13 @@ body {
   padding: 1px 1px 3px 1px;
 }
 
-
+.hamburgerBars {
+  position: absolute;
+  z-index: 10;
+  padding: 0 0 0 10px;
+  color: #000000;
+  font-size: 2em;
+}
 
 /*
 .WissleLogo {

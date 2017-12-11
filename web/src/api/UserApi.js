@@ -8,8 +8,9 @@ class UserApi {
           username: user.username,
           age: user.age,
         }
+      }).then((data) => {
+        resolve(Object.assign({}, data.data))
       })
-      resolve(Object.assign({}, user))
     })
   }
 }

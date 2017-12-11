@@ -15,20 +15,29 @@ export default class UserView extends Component {
     this.onUserNameChange = this.onUserNameChange.bind(this)
     this.onUserAgeChange = this.onUserAgeChange.bind(this)
     this.onClickSave = this.onClickSave.bind(this)
+    this.onClickTags = this.onClickTags.bind(this)
   }
+
   onUserNameChange(event) {
     const user = this.state.user
     user.username = event.target.value
     this.setState({ user: user })
   }
+
   onUserAgeChange(event) {
     const user = this.state.user
     user.age = event.target.value
     this.setState({ user: user })
   }
+
   onClickSave() {
     this.props.actions.saveUser(this.state.user)
   }
+
+  onClickTags() {
+    this.props.actions.getTags()
+  }
+
   render() {
     return (
       <div className="grid-x grid-padding-x grid-user align-middle">
@@ -54,7 +63,12 @@ export default class UserView extends Component {
             value="Create profile"
             className="button expanded"
             onClick={this.onClickSave} />
-      </div>
+          <input
+            type="button"
+            value="Get tags"
+            className="button expanded"
+            onClick={this.onClickTags} />
+        </div>
       </div>
     )
   }

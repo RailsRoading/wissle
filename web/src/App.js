@@ -14,6 +14,7 @@ import Framework from 'components/pages/Framework'
 import Home from 'components/pages/Home'
 
 import User from 'components/pages/User/User'
+import Wissle from 'components/pages/Wissle/Wissle'
 
 export default class App extends Component {
   render() {
@@ -24,6 +25,7 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/user" component={User} />
+              <Route exact path="/wissle" component={Wissle} />
             </Switch>
           </Framework>
         </BrowserRouter>

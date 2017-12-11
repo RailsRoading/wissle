@@ -16,10 +16,47 @@ body {
   padding: 1px 1px 3px 1px;
 }
 
+.grid-hamburger {
+  padding: 0;
+}
+
 .hamburger {
   position: absolute;
   z-index: 10;
   padding: 0 0 0 10px;
+}
+
+.navigation {
+  height: 100%;
+}
+
+.fa-user-circle-o {
+  font-size: 6em;
+  padding-top: 0.5em;
+}
+
+.userBox {
+  display: flex;
+  flex-direction: horizontal;
+  margin: 0.5em 2em 1em 2em;
+}
+
+.userNameBox {
+  background: $color-primary;
+  width: 40%;
+  text-align: center;
+  border: 0px;
+}
+
+.userAgeBox {
+  background: $color-primary;
+  width: 40%;
+  text-align: center;
+  border: 0px;
+}
+
+.editPencil {
+  border: 0px;
 }
 
 // HamburgerMenu styling start
@@ -35,18 +72,19 @@ body {
 
 .hamburgerMenu-toggle:hover {
   transition: all 0.4s ease-in-out;
-  color: ##212121;
+  color: #424242;
 }
 
 .hamburgerMenu {
-  position: absolute;
+  position: inherited;
   z-index: 1000;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  width: 100%;
-  margin: 0;
+  width: 20em;
+  height: 100%;
+  margin-left: -10px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -58,7 +96,7 @@ body {
           justify-content: center;
   opacity: 0;
   list-style: none;
-  background: #1779ba;
+  background: $color-primary;
   background-size: cover;
   text-align: center;
   -webkit-transform: translateX(-100%) rotateX(40deg);
@@ -67,22 +105,21 @@ body {
 }
 
 .hamburgerMenu li {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 .hamburgerMenu a {
   display: block;
-  color: #fefefe;
+  color: #ffffff;
   font-weight: bold;
-  height: 6.25rem;
-  line-height: 6.25rem;
-  border-bottom: 1px solid rgba(254, 254, 254, 0.5);
+  height: 3em;
+  line-height: 3em;
   text-decoration: none;
 }
 
 .hamburgerMenu a:hover {
   background-color: rgba(254, 254, 254, 0.6);
-  color: #0a0a0a;
+  color: #424242;
 }
 
 .hamburgerMenu.is-open {
@@ -98,7 +135,7 @@ body {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
-  color: #000000;
+  color: #424242;
 }
 // HamburgerMenu styling end
 

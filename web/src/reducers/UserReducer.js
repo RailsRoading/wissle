@@ -1,12 +1,12 @@
 import * as ActionTypes from '../actions/ActionTypes'
 
-function UserReducer(state = [], action) {
+function UserReducer(state = {}, action) {
   switch (action.type) {
     case ActionTypes.CREATE_USER_SUCCESS:
-      return [
+      return {
         ...state,
-        Object.assign({}, action.user),
-      ]
+        ...action.user,
+      }
   default:
     return state
   }

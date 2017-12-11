@@ -12,7 +12,7 @@ class WisslesController < ApplicationController
 
   # POST /
   def create
-    @resource = Wissle.new wissle_params
+    @resource = Wissle.new wissle_params.merge(:user_id => current_user.id)
 
     if @resource.save
       render :show, :status => :created

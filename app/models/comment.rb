@@ -1,14 +1,22 @@
 # frozen_string_literal: true
 
+##
+# Comment on a Wissle
+#
 class Comment < ApplicationRecord
   ##
   # Associations
   #
   belongs_to :wissle
   belongs_to :user
+
   ##
   # Validations
   #
+  validates :text,
+            :presence => true,
+            :length => { :in => 2..500 }
+
   ##
   # Callbacks
   #

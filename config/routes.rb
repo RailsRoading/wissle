@@ -5,11 +5,21 @@ Rails.application.routes.draw do
   # API endpoints
   #
   scope :api, :constraints => { :format => :json } do
-    # /api/users
+    ##
+    # Users
+    #
     resources :users, :only => %i[create show update]
-    # /api/wissles
-    resources :wissles, :only => %i[create show destroy index]
-    # /api/tags
+
+    ##
+    # Wissles
+    #
+    resources :wissles, :only => %i[create show destroy index] do
+      resources :comments, :only => %i[create destroy index]
+    end
+
+    ##
+    # Tags
+    #
     resources :tags, :only => %i[create index show]
   end
 end

@@ -6,8 +6,17 @@ class Wissle < ApplicationRecord
   #
   belongs_to :user
   has_one :category
-  has_many :commented_users, :through => :comment, :class_name => 'User'
-  has_many :subscribed_users, :through => :subscription, :class_name => 'User'
+
+  has_many :comments
+  has_many :subscriptions
+
+  has_many :commented_users,
+           :through => :comments,
+           :class_name => 'User'
+
+  has_many :subscribed_users,
+           :through => :subscriptions,
+           :class_name => 'User'
 
   ##
   # Validations

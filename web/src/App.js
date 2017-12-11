@@ -15,6 +15,8 @@ import Home from 'components/pages/Home'
 
 import User from 'components/pages/User/User'
 
+import TermsOfService from 'components/pages/TermsOfService'
+
 export default class App extends Component {
   render() {
     return (
@@ -24,6 +26,8 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/user" component={User} />
+
+              <Route exact path="/tos" component={TermsOfService} />
             </Switch>
           </Framework>
         </BrowserRouter>

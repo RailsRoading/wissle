@@ -28,3 +28,5 @@ coverage/
 
 localhost.crt
 localhost.key
+
+*.env

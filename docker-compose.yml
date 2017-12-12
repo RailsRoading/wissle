@@ -6,6 +6,8 @@ services:
   #
   app:
     image: wissle/wissle:latest
+    env_file:
+      - wissle.env
     environment:
       - RAILS_ENV=production
       - NODE_ENV=production

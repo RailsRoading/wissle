@@ -20,7 +20,6 @@ export function saveUser(user) {
       dispatch(createUserSuccess(user))
     }).catch((error) => {
       dispatch(ajaxCallError(error))
-      throw(error)
     })
   }
 }
@@ -32,7 +31,6 @@ export function getTags() {
       dispatch(getTagsSuccess(tags))
     }).catch((error) => {
       dispatch(ajaxCallError(error))
-      throw(error)
     })
   }
 }

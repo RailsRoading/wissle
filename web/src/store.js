@@ -8,7 +8,7 @@ export default createStore(
   RootReducer,
   compose(
     applyMiddleware(thunk),
-    persistState(),
+    persistState(['user']),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   ),
 )

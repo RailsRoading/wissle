@@ -5,7 +5,7 @@ services:
   # Application container
   #
   app:
-    build: .
+    image: wissle/wissle:latest
     environment:
       - RAILS_ENV=production
       - NODE_ENV=production

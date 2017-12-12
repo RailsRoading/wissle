@@ -19,7 +19,7 @@ export function saveUser(user) {
     return UserApi.saveUser(user).then((user) => {
       dispatch(createUserSuccess(user))
     }).catch((error) => {
-      dispatch(ajaxCallError(error))
+      dispatch(ajaxCallError(error.message))
     })
   }
 }
@@ -30,7 +30,7 @@ export function getTags() {
     return TagApi.getTags(getState).then((tags) => {
       dispatch(getTagsSuccess(tags))
     }).catch((error) => {
-      dispatch(ajaxCallError(error))
+      dispatch(ajaxCallError(error.message))
     })
   }
 }

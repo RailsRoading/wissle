@@ -1,4 +1,6 @@
-import config from 'config'
+const config = {
+  url: process.env.REACT_APP_API_URL || 'http://localhost:3000',
+}
 
 /**
  * Fetch API error handler
@@ -16,7 +18,7 @@ function handleErrors(response) {
  * @param uuid
  */
 export function get(endpoint, uuid) {
-  return fetch(`${config.API_ENDPOINT}${endpoint}`, {
+  return fetch(`${config.url}${endpoint}`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -35,7 +37,7 @@ export function get(endpoint, uuid) {
  * @param uuid
  */
 export function post(endpoint, body, uuid) {
-  return fetch(`${config.API_ENDPOINT}${endpoint}`, {
+  return fetch(`${config.url}${endpoint}`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -54,7 +56,7 @@ export function post(endpoint, body, uuid) {
  * @param body
  */
 export function postUnauth(endpoint, body) {
-  return fetch(`${config.API_ENDPOINT}${endpoint}`, {
+  return fetch(`${config.url}${endpoint}`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

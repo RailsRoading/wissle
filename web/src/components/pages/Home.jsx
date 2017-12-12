@@ -21,8 +21,10 @@ export default class Home extends Component {
           />
           <Link to="/details"><Button>Details</Button></Link>
           <Link to="/user"><Button>User</Button></Link>
+          <Link to="/wissle"><Button>Wissle</Button></Link>
+          <Link to="/tag"><Button>Tag</Button></Link>
         </div>
       </Protected>
-    );
+    )
   }
 }

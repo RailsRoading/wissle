@@ -3,6 +3,7 @@ import { PropTypes } from 'react'
 import { Link } from 'react-router-dom'
 
 import Protected from 'components/Protected'
+import Alert from 'components/Alert'
 
 import './User.css'
 
@@ -48,6 +49,7 @@ export default class UserView extends Component {
             <div className="logo padding-3 margin-top-2 text-center">Wissle</div>
           </div>
           <div className="small-10 small-offset-1 medium-6 medium-offset-3 large-4 large-offset-4 cell">
+            <Alert />
             <input
               type="text"
               onChange={this.onUserNameChange}

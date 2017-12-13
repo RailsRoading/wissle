@@ -69,3 +69,55 @@ export default class Home extends Component {
     </div>);
   }
 }
+
+class UserInfo extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      edit: false,
+      username: 'bob',
+      age: '24',
+    }
+    this.handleAgeChange = this.handleAgeChange.bind(this);
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+  }
+
+  render(){
+    var editing = this.state.edit;
+    var username = this.state.username;
+    var age = this.state.age;
+
+    if(editing) {
+      return (
+        <div>
+          <input className="username" type="text" placeholder="Username" value={this.state.username} onChange={this.handleUsernameChange}></input>
+          <input className="age" type="text" placeholder="Age" value={this.state.age} onChange={this.handleAgeChange}></input>
+          <p onClick={() => this.handleClick()}>X</p>
+        </div>
+      );
+    }
+    return (
+      <div>
+        <p>{username}, {age} <span onClick={() => this.handleClick()}>X</span></p>
+      </div>
+    );
+  }
+
+  handleUsernameChange(e){
+    this.setState({
+      username: e.target.value
+    });
+  }
+
+  handleAgeChange(e){
+    this.setState({
+      age: e.target.value
+    });
+  }
+
+  handleClick(){
+    this.setState({
+      edit: !this.state.edit,
+    });
+  }
+}

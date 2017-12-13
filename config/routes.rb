@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/user' => 'app#user'
   get '/tags' => 'app#tags'
+  get '/map' => 'app#map'
 
   ##
   # API endpoints

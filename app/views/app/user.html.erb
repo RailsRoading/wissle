@@ -9,10 +9,35 @@
   </div>
   <div class="small-10 small-offset-1 medium-6 medium-offset-3 large-4 large-offset-4 cell">
     <form id="user-form">
-      <input type="text" placeholder="Username" />
-      <input type="number" placeholder="Age" />
+      <input type="text" name="username" placeholder="Username" />
+      <input type="number" name="age" placeholder="Age" />
       <small>By creating a profile you agree to the <a href="/tos">Terms of Service</a></small>
       <input type="submit" value="Create profile" class="button expanded" />
     </form>
   </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+
+        $('form').submit(function(event) {
+
+            var formData = {
+                'username'              : $('input[id=username]').val(),
+                'age'             : $('input[id=age]').val(),
+            };
+
+            $.ajax({
+                type        : 'POST',
+                url         : '/api/users',
+                data        : formData,
+                dataType    : 'json',
+            })
+                .done(function(data) {
+                    console.log(data);
+                });
+            event.preventDefault();
+        });
+
+    });
+</script>

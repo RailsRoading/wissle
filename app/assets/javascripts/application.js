@@ -17,4 +17,23 @@
 
 $(function(){
   $(document).foundation();
+
+  getTags();
 });
+
+function getTags() {
+  $.ajax({
+    dataType: 'json',
+    contentType: 'application/json',
+    url: '/api/tags',
+    headers: {
+      'Authorization': '96e27e6a-c0c3-4d26-9a9b-5dc367a118fe'
+    },
+    success: function(data) {
+      console.log(data);
+    },
+    error: function(error) {
+      console.log(error)
+    }
+  })
+}

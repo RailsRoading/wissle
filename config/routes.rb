@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root :to => 'app#index'
+  root :to => 'app#user'
+
+  get '/user' => 'app#user'
 
   get 'map' => 'app#map'
 

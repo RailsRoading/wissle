@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class AppController < ApplicationController
-  # GET /
-  def index; end
+  # GET /user
+  def user; end
 
   # GET /map
   def map; end

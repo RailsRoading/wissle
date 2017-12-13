@@ -8,5 +8,6 @@ else
     json.longitude wissle.longitude
     json.latitude wissle.latitude
     json.text wissle.text
+    json.user wissle.user, :partial => 'api/users/user', :as => :user
   end
 end

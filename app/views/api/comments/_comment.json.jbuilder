@@ -6,6 +6,6 @@ else
   json.data do
     json.id comment.id
     json.text comment.text
-    json.user comment.user, :partial => 'users/user', :as => :user
+    json.user comment.user, :partial => 'api/users/user', :as => :user
   end
 end

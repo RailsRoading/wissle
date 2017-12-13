@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-json.array! @resources, :partial => 'comments/comment', :as => :comment
+json.array! @resources, :partial => 'api/comments/comment', :as => :comment

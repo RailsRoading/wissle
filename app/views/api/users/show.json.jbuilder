@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-json.partial! @resource, :partial => 'users/user', :as => :user
+json.partial! @resource, :partial => 'api/users/user', :as => :user

@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-json.array! @resources, :partial => 'tags/tag', :as => :tag
+json.array! @resources, :partial => 'api/tags/tag', :as => :tag

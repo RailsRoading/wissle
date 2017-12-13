@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AppController < ActionController::Base
+class AppController < ApplicationController
   # GET /
   def index; end
 end

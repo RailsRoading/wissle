@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   ##
   # API endpoints
   #
-  scope :api, :constraints => { :format => :json } do
+  namespace :api, :constraints => { :format => :json } do
     ##
     # Users
     #

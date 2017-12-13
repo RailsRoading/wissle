@@ -60,7 +60,9 @@
 //  55. Top Bar
 //  56. Xy Grid
 
-@import 'util/util';
+@import "util/util";
+
+@import "variables";
 
 // 1. Global
 // ---------
@@ -70,7 +72,7 @@ $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
   //primary: #1779ba,
-  primary: #c81013,
+  primary: $color-primary,
   secondary: #767676,
   success: #3adb76,
   warning: #ffae00,

@@ -9,11 +9,10 @@
 // Font Awesome
 @import "font-awesome";
 
-@import "variables";
 @import "user";
 
 html,
 body {
-  background-color: $color-primary;
-  color: #ffffff;
+  background-color: $color-background;
+  color: white;
 }

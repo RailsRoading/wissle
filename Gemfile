@@ -9,6 +9,8 @@ end
 
 # Zurb Foundation
 gem 'foundation-rails'
+# Font Awesome
+gem 'font-awesome-rails'
 
 # SASS
 gem 'sass-rails'

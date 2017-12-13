@@ -20,14 +20,28 @@ body {
   padding: 0;
 }
 
+// HamburgerMenu content styling start
+.menuHeader {
+  height: 20vh;
+}
+
+.menuBody {
+  height: 70vh;
+  margin-top: 20vh;
+}
+
+.menuFooter {
+  height: 10vh;
+}
+
 .hamburger {
   position: absolute;
   z-index: 10;
   padding: 0 0 0 10px;
 }
 
-.navigation {
-  height: 100%;
+.hamburgerMenu.is-open {
+  height: 100vh;
 }
 
 .fa-user-circle-o {
@@ -58,6 +72,7 @@ body {
 .editPencil {
   border: 0px;
 }
+// HamburgerMenu content styling end
 
 // HamburgerMenu styling start
 .hamburgerMenu-toggle {

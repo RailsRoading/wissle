@@ -28,31 +28,37 @@ export default class Home extends Component {
       <div className="small-12 medium-12 large-12 cell text-center">
         <div className="hamburger">
           <div className="grid-x grid-hamburger align-middle">
-            <nav role="navigation" className="navigation">
+            <nav role="navigation">
               <ul id="hamburgerMenu" className={`hamburgerMenu ${this.state.openMenu
                   ? 'is-open'
                   : ""}`}>
-                <i className="fa fa-user-circle-o" aria-hidden="true"></i>
-                <div className="userBox">
-                  <input className="userNameBox" type="flexbox" placeholder="Username"/>
-                  <input className="userAgeBox" type="flexbox" placeholder="Age"/>
-                  <a className="editPencil" onClick={this.toggleUserEdit}>
-                    <i className="fa fa-pencil" aria-hidden="true"></i>
-                  </a>
+                <div className="menuHeader">
+                  <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+                  <div className="userBox">
+                    <input className="userNameBox" type="flexbox" placeholder="Username"/>
+                    <input className="userAgeBox" type="flexbox" placeholder="Age"/>
+                    <a className="editPencil" onClick={this.toggleUserEdit}>
+                      <i className="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                  </div>
                 </div>
-                <li>
-                  <a href="interests">Tags</a>
-                </li>
-                <li>
-                  <a href="wissles">Wissles</a>
-                </li>
-                <li>
-                {/* remove this when launching! */}
-                  <a href="user">User</a>
-                </li>
-                <li>
-                  <a href="help">Help</a>
-                </li>
+                <div className="menuBody">
+                  <li>
+                    <a href="interests">Tags</a>
+                  </li>
+                  <li>
+                    <a href="wissles">Wissles</a>
+                  </li>
+                  <li>
+                    {/* remove this when launching! */}
+                    <a href="user">User</a>
+                  </li>
+                </div>
+                <div className="menuFooter">
+                  <li>
+                    <a href="help">Help</a>
+                  </li>
+                </div>
               </ul>
               <a data-toggle-menu="data-toggle-menu" className="hamburgerMenu-toggle" onClick={this.openMenu}>
                 <i className="fa fa-bars"></i>
@@ -71,53 +77,47 @@ export default class Home extends Component {
 }
 
 class UserInfo extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       edit: false,
-      username: 'bob',
-      age: '24',
+      username: 'Username',
+      age: 'Age'
     }
     this.handleAgeChange = this.handleAgeChange.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
   }
 
-  render(){
+  render() {
     var editing = this.state.edit;
     var username = this.state.username;
     var age = this.state.age;
 
-    if(editing) {
-      return (
-        <div>
-          <input className="username" type="text" placeholder="Username" value={this.state.username} onChange={this.handleUsernameChange}></input>
-          <input className="age" type="text" placeholder="Age" value={this.state.age} onChange={this.handleAgeChange}></input>
-          <p onClick={() => this.handleClick()}>X</p>
-        </div>
-      );
+    if (editing) {
+      return (<div>
+        <input className="username" type="text" placeholder="Username" value={this.state.username} onChange={this.handleUsernameChange}></input>
+        <input className="age" type="text" placeholder="Age" value={this.state.age} onChange={this.handleAgeChange}></input>
+        <p onClick={() => this.handleClick()}>X</p>
+      </div>);
     }
-    return (
-      <div>
-        <p>{username}, {age} <span onClick={() => this.handleClick()}>X</span></p>
-      </div>
-    );
+    return (<div>
+      <p>{username}, {age}
+        <span onClick={() => this.handleClick()}>X</span>
+      </p>
+    </div>);
   }
 
-  handleUsernameChange(e){
-    this.setState({
-      username: e.target.value
-    });
+  handleUsernameChange(e) {
+    this.setState({username: e.target.value});
   }
 
-  handleAgeChange(e){
-    this.setState({
-      age: e.target.value
-    });
+  handleAgeChange(e) {
+    this.setState({age: e.target.value});
   }
 
-  handleClick(){
+  handleClick() {
     this.setState({
-      edit: !this.state.edit,
+      edit: !this.state.edit
     });
   }
 }

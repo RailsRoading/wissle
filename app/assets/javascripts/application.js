@@ -17,8 +17,6 @@
 
 $(function(){
   $(document).foundation();
-
-  createUser();
 });
 
 function getTags() {

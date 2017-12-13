@@ -1,1 +1,8 @@
-Hej, verden!
+<script>
+  if (window.localStorage.getItem('user.uuid') === null)
+    window.location.replace('/user');
+</script>
+
+<%= render 'partials/modals/wissle/show' %>
+
+<button class="button" onClick="getWissle(1)">Show Wissle</button>

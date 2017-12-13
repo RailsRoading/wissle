@@ -13,6 +13,7 @@ function getWissle(id) {
       var wissle = data[0].data;
 
       $('#modal-show-wissle-text').html(wissle.text);
+      $('#modal-show-wissle-user').html(wissle.user.data.username + ' (' + wissle.user.data.age + ')')
       $('#modal-show-wissle-latitude').html(wissle.latitude);
       $('#modal-show-wissle-longitude').html(wissle.longitude);
     },

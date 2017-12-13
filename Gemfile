@@ -7,6 +7,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Zurb Foundation
+gem 'foundation-rails'
+
+# SASS
+gem 'sass-rails'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record

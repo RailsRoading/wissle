@@ -1,6 +1,5 @@
 function getWissle(id) {
   var $modal = new Foundation.Reveal($('#modal-show-wissle'));
-  $modal.open();
 
   $.ajax({
     url: '/api/wissles',
@@ -10,6 +9,8 @@ function getWissle(id) {
       'Authorization': window.localStorage.getItem('user.uuid')
     },
     success: function(data) {
+      $modal.open();
+
       var wissle = data[0].data;
 
       $('#modal-show-wissle-text').html(wissle.text);
@@ -18,6 +19,7 @@ function getWissle(id) {
       $('#modal-show-wissle-longitude').html(wissle.longitude);
     },
     error: function(error) {
+      showAlert(error);
     }
   })
 }

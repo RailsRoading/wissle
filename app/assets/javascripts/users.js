@@ -16,7 +16,7 @@ function createUser() {
       window.location.replace('/tags');
     },
     error: function(error) {
-      console.log(error);
+      showAlert(error);
     }
   })
 }

@@ -17,6 +17,9 @@
 
 $(function(){
   $(document).foundation();
+
+  // Hide alert by default
+  hideAlert();
 });
 
 function getTags() {
@@ -31,7 +34,7 @@ function getTags() {
       console.log(data);
     },
     error: function(error) {
-      console.log(error)
+      showAlert(error);
     }
   })
 }

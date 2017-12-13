@@ -25,7 +25,7 @@ function getTags() {
     dataType: 'json',
     contentType: 'json',
     headers: {
-      'Authorization': '96e27e6a-c0c3-4d26-9a9b-5dc367a118fe'
+      'Authorization': window.localStorage.getItem('user.uuid')
     },
     success: function(data) {
       console.log(data);

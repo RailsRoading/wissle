@@ -4,9 +4,6 @@ function createUser() {
     dataType: 'json',
     contentType: 'application/json',
     method: 'POST',
-    headers: {
-      'Authorization': window.localStorage.getItem('uuid')
-    },
     data: JSON.stringify({
       data: {
         username: 'Florian',

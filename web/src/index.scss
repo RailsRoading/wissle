@@ -50,28 +50,10 @@ body {
 }
 
 .userBox {
-  display: flex;
   flex-direction: horizontal;
-  margin: 0.5em 2em 1em 2em;
+  margin: 1em 2em 1em 2em;
 }
 
-.userNameBox {
-  background: $color-primary;
-  width: 40%;
-  text-align: center;
-  border: 0px;
-}
-
-.userAgeBox {
-  background: $color-primary;
-  width: 40%;
-  text-align: center;
-  border: 0px;
-}
-
-.editPencil {
-  border: 0px;
-}
 // HamburgerMenu content styling end
 
 // HamburgerMenu styling start

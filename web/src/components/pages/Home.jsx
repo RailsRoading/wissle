@@ -35,11 +35,7 @@ export default class Home extends Component {
                 <div className="menuHeader">
                   <i className="fa fa-user-circle-o" aria-hidden="true"></i>
                   <div className="userBox">
-                    <input className="userNameBox" type="flexbox" placeholder="Username"/>
-                    <input className="userAgeBox" type="flexbox" placeholder="Age"/>
-                    <a className="editPencil" onClick={this.toggleUserEdit}>
-                      <i className="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
+                    <UserInfo/>
                   </div>
                 </div>
                 <div className="menuBody">
@@ -102,7 +98,7 @@ class UserInfo extends React.Component {
     }
     return (<div>
       <p>{username}, {age}
-        <span onClick={() => this.handleClick()}>X</span>
+        <span onClick={() => this.handleClick()}><i className="fa fa-pencil" aria-hidden="true"/></span>
       </p>
     </div>);
   }

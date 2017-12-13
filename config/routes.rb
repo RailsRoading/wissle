@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   root :to => 'app#index'
 
+  get 'map' => 'app#map'
+
   ##
   # API endpoints
   #

@@ -3,4 +3,7 @@
 class AppController < ApplicationController
   # GET /
   def index; end
+
+  # GET /map
+  def map; end
 end

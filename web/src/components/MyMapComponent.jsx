@@ -5,6 +5,15 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={15}
     defaultCenter={{ lat: 57.049515, lng: 9.916286 }}
+    defaultOptions={{
+      streetViewControl: false,
+      scaleControl: false,
+      mapTypeControl: false,
+      panControl: false,
+      zoomControl: false,
+      rotateControl: false,
+      fullscreenControl: false
+    }}
   >
     {props.isMarkerShown && <Marker position={{ lat: 57.049515, lng: 9.916286 }} onClick={props.onMarkerClick} />}
 
@@ -20,19 +29,9 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
     </GoogleMap>
 ))
 
-class MyFancyComponent extends React.PureComponent {
+class MyMarkerComponent extends React.PureComponent {
   state = {
     isMarkerShown: true,
-  }
-
-  componentDidMount() {
-    this.delayedShowMarker()
-  }
-
-  delayedShowMarker = () => {
-    setTimeout(() => {
-      this.setState({ isMarkerShown: true })
-    }, 3000)
   }
 
   handleMarkerClick = () => {

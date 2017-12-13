@@ -18,14 +18,14 @@
 $(function(){
   $(document).foundation();
 
-  getTags();
+  createUser();
 });
 
 function getTags() {
   $.ajax({
-    dataType: 'json',
-    contentType: 'application/json',
     url: '/api/tags',
+    dataType: 'json',
+    contentType: 'json',
     headers: {
       'Authorization': '96e27e6a-c0c3-4d26-9a9b-5dc367a118fe'
     },

@@ -1,0 +1,20 @@
+{
+  "short_name": "Wissle",
+  "name": "Wissle",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "launcher-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#8d1717"
+}

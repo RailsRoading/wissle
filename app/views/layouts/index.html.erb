@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta name="theme-color" content="#8D1717">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <link rel="icon" sizes="192x192" href="launcher-icon.png">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!--
+    manifest.json provides metadata used when your web app is added to the
+    homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+  -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <title>Wissle</title>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>

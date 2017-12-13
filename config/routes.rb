@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   root :to => 'app#user'
 
   get '/user' => 'app#user'
-
-  get 'map' => 'app#map'
+  get '/tags' => 'app#tags'
 
   ##
   # API endpoints

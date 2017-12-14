@@ -11,6 +11,7 @@
     <form id="user-form">
       <input type="text" name="username" placeholder="Username" />
       <input type="number" name="age" placeholder="Age" />
+
       <small>By creating a profile you agree to the <a href="/tos">Terms of Service</a></small>
       <input type="submit" value="Create profile" class="button expanded" />
     </form>
@@ -22,21 +23,23 @@
 
         $('form').submit(function(event) {
 
-            var formData = {
-                'username'              : $('input[id=username]').val(),
-                'age'             : $('input[id=age]').val(),
-            };
+            event.preventDefault();
 
             $.ajax({
                 type        : 'POST',
                 url         : '/api/users',
-                data        : formData,
-                dataType    : 'json',
+                data        : {
+                    'username': $('input[id=username]').val(),
+                    'age': $('input[id=age]').val()
+                },
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                }
             })
                 .done(function(data) {
                     console.log(data);
                 });
-            event.preventDefault();
         });
 
     });

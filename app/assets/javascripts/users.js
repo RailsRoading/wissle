@@ -21,7 +21,7 @@ $(document).ready(function() {
         window.localStorage.setItem('user.uuid', data.data.uuid);
       },
       error: function(error) {
-        showAlert(error);
+        showAlert(error.responseJSON.errors.join(', '));
       }
     })
 

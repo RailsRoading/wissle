@@ -8,7 +8,7 @@
     <div class="logo padding-3 margin-top-2 text-center">Wissle</div>
   </div>
   <div class="small-10 small-offset-1 medium-6 medium-offset-3 large-4 large-offset-4 cell">
-    <form id="user-form">
+    <form id="form-user">
       <input type="text" name="username" placeholder="Username" />
       <input type="number" name="age" placeholder="Age" />
 
@@ -17,30 +17,3 @@
     </form>
   </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-
-        $('form').submit(function(event) {
-
-            event.preventDefault();
-
-            $.ajax({
-                type        : 'POST',
-                url         : '/api/users',
-                data        : {
-                    'username': $('input[id=username]').val(),
-                    'age': $('input[id=age]').val()
-                },
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json"
-                }
-            })
-                .done(function(data) {
-                    console.log(data);
-                });
-        });
-
-    });
-</script>

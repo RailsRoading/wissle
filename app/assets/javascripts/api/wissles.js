@@ -23,3 +23,26 @@ function getWissle(id) {
     }
   })
 }
+
+function createWissle(text, callback) {
+  $.ajax({
+    url: '/api/wissles',
+    dataType: 'json',
+    contentType: 'application/json',
+    method: 'POST',
+    headers: {
+      'Authorization': window.localStorage.getItem('user.uuid')
+    },
+    data: JSON.stringify({
+      data: {
+        text: text,
+        latitude: position.current.getPosition().lat(),
+        longitude: position.current.getPosition().lng(),
+      }
+    }),
+    success: callback,
+    error: function(error) {
+      showAlert(error);
+    }
+  })
+}

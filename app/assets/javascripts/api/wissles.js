@@ -4,7 +4,7 @@ function getWissle(id) {
   $.ajax({
     url: '/api/wissles',
     dataType: 'json',
-    contentType: 'json',
+    contentType: 'application/json',
     headers: {
       'Authorization': window.localStorage.getItem('user.uuid')
     },

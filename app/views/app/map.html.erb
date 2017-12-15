@@ -4,6 +4,15 @@
 </script>
 
 <%= render 'partials/modals/wissle/show' %>
+<%= render 'partials/modals/wissle/create' %>
 
 <div id="map"></div>
 <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
+<!-- Create wissle button -->
+<button class="button large button-create-wissle" type="button" title="Create Wissle" data-open="modal-create-wissle">
+  <!-- Screen readers will see "close" -->
+  <span class="show-for-sr">Create Wissle</span>
+  <!-- Visual users will see the X, but not the "Close" text -->
+  <span aria-hidden="true"><i class="fa fa-plus"></i></span>
+</button>

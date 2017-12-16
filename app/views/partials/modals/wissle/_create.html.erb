@@ -1,9 +1,18 @@
 <div class="reveal tiny" id="modal-create-wissle" data-reveal>
-  <h1>Create Wissle</h1>
-  <form id="form-wissle">
-    <input type="text" name="text" placeholder="Description" />
-
-    <input type="submit" value="Create Wissle" class="button expanded" />
+  <form id="form-wissle" style="height: 100%;">
+    <div class="grid-y" style="height: 100%;">
+      <div class="cell small-11">
+        <h1 class="modal-title">Create a Wissle</h1>
+        <p>Creating a Wissle will broadcast this to people in the area with a common profile.</p>
+        <p><small class="text-gray">Your current location is <span id="modal-create-wissle-address"></span></small></p>
+        <p>
+          <input type="text" name="text" id="modal-create-wissle-text" placeholder="Description" />
+        </p>
+      </div>
+      <div class="cell">
+        <input type="submit" value="Create Wissle" class="button expanded" />
+      </div>
+    </div>
   </form>
 
   <button class="close-button" data-close aria-label="Close modal" type="button">

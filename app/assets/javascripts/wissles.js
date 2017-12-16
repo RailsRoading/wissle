@@ -3,13 +3,29 @@ $(document).ready(function() {
     e.preventDefault();
 
     createWissle(
-      $(this).children('[name=text]').val(),
+      $('#modal-create-wissle-text').val(),
       function() {
-        $(this).children('[name=text]').val('');
+        $('#modal-create-wissle-text').val('');
         $('#modal-create-wissle').foundation('close');
       });
   });
 });
+
+function showCreateWissle() {
+  $('#modal-create-wissle').foundation('open');
+
+  position.geocoder.geocode({ location: position.current.getPosition() }, function(results, status) {
+    if (status === 'OK') {
+      if (results[0]) {
+        $('#modal-create-wissle-address').html(results[0].formatted_address);
+      } else {
+        $('#modal-create-wissle-address').html('<i>No address found</i>');
+      }
+    } else {
+      showAlert(status);
+    }
+  });
+}
 
 function showWissle(id) {
   var $modal = new Foundation.Reveal($('#modal-show-wissle'));

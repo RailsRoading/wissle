@@ -9,7 +9,10 @@ var position = {
   current: null,
 
   // Map
-  map: null
+  map: null,
+
+  // Wissles
+  wissles: null,
 };
 
 function initMap() {
@@ -22,7 +25,23 @@ function initMap() {
   // Geolocate every 5 seconds
   setTimeout(geolocate, 5000);
 
+  // Add blue dot on map
   geolocate();
+
+  // Add wissles on map
+  getWissles((wissles) => {
+    position.wissles = wissles.map((wissle) => {
+      return {
+        ...wissle,
+        marker: new google.maps.Marker({
+          position: { lat: wissle.latitude, lng: wissle.longitude },
+          map: position.map,
+          title: wissle.text
+        })
+      }
+    });
+    console.log(position.wissles);
+  });
 }
 
 function geolocate() {

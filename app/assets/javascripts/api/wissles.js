@@ -17,25 +17,16 @@ function getWissles(callback) {
   })
 }
 
-function getWissle(id) {
-  var $modal = new Foundation.Reveal($('#modal-show-wissle'));
-
+function getWissle(id, callback) {
   $.ajax({
-    url: '/api/wissles',
+    url: '/api/wissles/' + id,
     dataType: 'json',
     contentType: 'application/json',
     headers: {
       'Authorization': window.localStorage.getItem('user.uuid')
     },
     success: function(data) {
-      $modal.open();
-
-      var wissle = data[0].data;
-
-      $('#modal-show-wissle-text').html(wissle.text);
-      $('#modal-show-wissle-user').html(wissle.user.data.username + ' (' + wissle.user.data.age + ')')
-      $('#modal-show-wissle-latitude').html(wissle.latitude);
-      $('#modal-show-wissle-longitude').html(wissle.longitude);
+      callback(data.data);
     },
     error: function(error) {
       showAlert(error);

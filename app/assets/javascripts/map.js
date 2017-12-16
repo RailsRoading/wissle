@@ -31,13 +31,19 @@ function initMap() {
   // Add wissles on map
   getWissles((wissles) => {
     position.wissles = wissles.map((wissle) => {
+      var marker = new google.maps.Marker({
+        position: { lat: wissle.latitude, lng: wissle.longitude },
+        map: position.map,
+        title: wissle.text
+      });
+
+      marker.addListener('click', function() {
+        showWissle(wissle.id);
+      });
+
       return {
         ...wissle,
-        marker: new google.maps.Marker({
-          position: { lat: wissle.latitude, lng: wissle.longitude },
-          map: position.map,
-          title: wissle.text
-        })
+        marker: marker
       }
     });
   });

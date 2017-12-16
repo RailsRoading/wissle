@@ -40,7 +40,6 @@ function initMap() {
         })
       }
     });
-    console.log(position.wissles);
   });
 }
 

@@ -1,3 +1,22 @@
+function getWissles(callback) {
+  $.ajax({
+    url: '/api/wissles',
+    dataType: 'json',
+    contentType: 'application/json',
+    headers: {
+      'Authorization': window.localStorage.getItem('user.uuid')
+    },
+    success: function(data) {
+      var wissles = data.map(w => w.data);
+
+      callback(wissles);
+    },
+    error: function(error) {
+      showAlert(error);
+    }
+  })
+}
+
 function getWissle(id) {
   var $modal = new Foundation.Reveal($('#modal-show-wissle'));
 

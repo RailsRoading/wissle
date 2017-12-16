@@ -13,6 +13,9 @@ var position = {
 
   // Wissles
   wissles: null,
+
+  // Geocoder
+  geocoder: null
 };
 
 function initMap() {
@@ -27,6 +30,9 @@ function initMap() {
 
   // Add blue dot on map
   geolocate();
+
+  // Set up geocoder
+  position.geocoder = new google.maps.Geocoder;
 
   // Add wissles on map
   getWissles((wissles) => {

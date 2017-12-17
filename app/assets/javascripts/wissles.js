@@ -36,8 +36,9 @@ function showWissle(id) {
     $modal.open();
 
     $('#modal-show-wissle-text').html(wissle.text);
-    $('#modal-show-wissle-user').html(wissle.user.data.username + ' (' + wissle.user.data.age + ')')
+    $('#modal-show-wissle-user').html(wissle.user.data.username + ' (' + wissle.user.data.age + ')');
     $('#modal-show-wissle-timestamp').html(moment(wissle.created_at * 1000).fromNow());
+    $('#modal-show-wissle-category').html(wissle.category);
 
     // Geocoded address
     position.geocoder.geocode({ location: { lat: wissle.latitude, lng: wissle.longitude } }, function(results, status) {

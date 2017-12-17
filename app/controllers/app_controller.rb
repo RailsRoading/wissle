@@ -9,4 +9,7 @@ class AppController < ApplicationController
 
   # GET /map
   def map; end
+
+  # GET /tos
+  def tos; end
 end

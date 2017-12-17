@@ -5,7 +5,7 @@ class Wissle < ApplicationRecord
   # Associations
   #
   belongs_to :user
-  has_one :category
+  belongs_to :category
 
   has_many :comments
   has_many :subscriptions

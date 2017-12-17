@@ -15,6 +15,9 @@ su - wissle
 # Migrate relational data
 bundle exec rails db:migrate
 
+# Seed database
+bundle exec rails db:seed
+
 # Build assets
 bundle exec rails assets:clobber
 bundle exec rails assets:precompile

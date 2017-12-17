@@ -37,6 +37,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+# Fake data generator
+gem 'faker'
+
+# Factory pattern for testing
+gem 'factory_bot'
+gem 'factory_bot_rails'
+
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', :platform => %i[mri mingw x64_mingw]
@@ -76,13 +83,6 @@ group :test do
 
   # Rails RSpec matchers
   gem 'shoulda-matchers', :git => 'https://github.com/thoughtbot/shoulda-matchers.git', :branch => 'rails-5'
-
-  # Factory pattern for testing
-  gem 'factory_bot'
-  gem 'factory_bot_rails'
-
-  # Fake data generator
-  gem 'faker'
 
   # Reset database
   gem 'database_cleaner'

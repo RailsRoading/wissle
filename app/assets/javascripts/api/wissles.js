@@ -34,7 +34,7 @@ function getWissle(id, callback) {
   })
 }
 
-function createWissle(text, callback) {
+function createWissle(text, category, callback) {
   $.ajax({
     url: '/api/wissles',
     dataType: 'json',
@@ -48,6 +48,7 @@ function createWissle(text, callback) {
         text: text,
         latitude: position.current.getPosition().lat(),
         longitude: position.current.getPosition().lng(),
+        category: category,
       }
     }),
     success: callback,

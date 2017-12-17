@@ -4,6 +4,7 @@ $(document).ready(function() {
 
     createWissle(
       $('#modal-create-wissle-text').val(),
+      $('#modal-create-wissle-category').val(),
       function() {
         $('#modal-create-wissle-text').val('');
         $('#modal-create-wissle').foundation('close');
@@ -36,8 +37,9 @@ function showWissle(id) {
     $modal.open();
 
     $('#modal-show-wissle-text').html(wissle.text);
-    $('#modal-show-wissle-user').html(wissle.user.data.username + ' (' + wissle.user.data.age + ')')
+    $('#modal-show-wissle-user').html(wissle.user.data.username + ' (' + wissle.user.data.age + ')');
     $('#modal-show-wissle-timestamp').html(moment(wissle.created_at * 1000).fromNow());
+    $('#modal-show-wissle-category').html(wissle.category);
 
     // Geocoded address
     position.geocoder.geocode({ location: { lat: wissle.latitude, lng: wissle.longitude } }, function(results, status) {
@@ -61,7 +63,8 @@ function showWissles() {
       var marker = new google.maps.Marker({
         position: {lat: wissle.latitude, lng: wissle.longitude},
         map: position.map,
-        title: wissle.text
+        title: wissle.text,
+        icon: '/assets/markers/' + wissle.category.toLowerCase() + '.png'
       });
 
       marker.addListener('click', function () {

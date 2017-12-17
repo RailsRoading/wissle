@@ -5,7 +5,7 @@ class Wissle < ApplicationRecord
   # Associations
   #
   belongs_to :user
-  has_one :category
+  belongs_to :category
 
   has_many :comments
   has_many :subscriptions
@@ -29,6 +29,9 @@ class Wissle < ApplicationRecord
             :presence => true
 
   validates :latitude,
+            :presence => true
+
+  validates :category,
             :presence => true
 
   ##

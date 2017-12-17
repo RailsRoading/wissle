@@ -9,6 +9,10 @@ RUN useradd wissle --create-home --home-dir /app/ --shell /bin/false
 WORKDIR /app/
 ENV RAILS_ENV production
 
+# Install packages
+RUN apt-get update && apt-get install -qq -y --no-install-recommends \
+    build-essential nodejs libpq-dev libsqlite3-dev cmake pkg-config git
+
 ##
 # Install Ruby dependencies
 #

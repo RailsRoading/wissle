@@ -1,9 +1,17 @@
 <div class="reveal tiny" id="modal-show-wissle" data-reveal>
-  <h1 id="modal-show-wissle-text"></h1>
-  <p class="lead">by <span id="modal-show-wissle-user"></span></p>
+  <div class="grid-y" style="height: 100%;">
+    <div class="cell small-11">
+      <p>
+        <span class="modal-title" id="modal-show-wissle-text"></span><br>
+        By <a href="#"><span id="modal-show-wissle-user"></span></a>
+      </p>
+      <small class="text-gray" id="modal-show-wissle-address"></small>
+    </div>
 
-  <p>at <span id="modal-show-wissle-latitude"></span>, <span id="modal-show-wissle-longitude"></span></p>
-
+    <div class="cell">
+      <input type="button" class="button expanded" value="Directions">
+    </div>
+  </div>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>

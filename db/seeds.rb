@@ -3,8 +3,6 @@
 require 'factory_bot'
 require 'faker'
 
-Dir[File.join __dir__, '../spec/factories/*.rb'].each { |f| require_relative f }
-
 # Sample size
 FACTOR = 10
 

@@ -36,6 +36,52 @@ body {
   z-index: 9999;
 }
 
-.force-image-precompilation {
-  background-image: asset-data-url("bluedot.png");
-}
+.force-image-precompilation { background-image: asset-data-url("bluedot.png"); }
+.force-precompile-art { background-image: asset-data-url('art.png') }
+.force-precompile-automotive { background-image: asset-data-url('automotive.png') }
+.force-precompile-breakfast { background-image: asset-data-url('breakfast.png') }
+.force-precompile-business { background-image: asset-data-url('business.png') }
+.force-precompile-clothing { background-image: asset-data-url('clothing.png') }
+.force-precompile-coffee { background-image: asset-data-url('coffee.png') }
+.force-precompile-community { background-image: asset-data-url('community.png') }
+.force-precompile-computer { background-image: asset-data-url('computer.png') }
+.force-precompile-concert { background-image: asset-data-url('concert.png') }
+.force-precompile-dance { background-image: asset-data-url('dance.png') }
+.force-precompile-drinks { background-image: asset-data-url('drinks.png') }
+.force-precompile-education { background-image: asset-data-url('education.png') }
+.force-precompile-electronics { background-image: asset-data-url('electronics.png') }
+.force-precompile-engineering { background-image: asset-data-url('engineering.png') }
+.force-precompile-entertainment { background-image: asset-data-url('entertainment.png') }
+.force-precompile-event { background-image: asset-data-url('event.png') }
+.force-precompile-exhibition { background-image: asset-data-url('exhibition.png') }
+.force-precompile-fashion { background-image: asset-data-url('fashion.png') }
+.force-precompile-festival { background-image: asset-data-url('festival.png') }
+.force-precompile-financial { background-image: asset-data-url('financial.png') }
+.force-precompile-food { background-image: asset-data-url('food.png') }
+.force-precompile-games { background-image: asset-data-url('games.png') }
+.force-precompile-halloween { background-image: asset-data-url('halloween.png') }
+.force-precompile-internet { background-image: asset-data-url('internet.png') }
+.force-precompile-jewelry { background-image: asset-data-url('jewelry.png') }
+.force-precompile-karaoke { background-image: asset-data-url('karaoke.png') }
+.force-precompile-literature { background-image: asset-data-url('literature.png') }
+.force-precompile-meetup { background-image: asset-data-url('meetup.png') }
+.force-precompile-movie { background-image: asset-data-url('movie.png') }
+.force-precompile-museum { background-image: asset-data-url('museum.png') }
+.force-precompile-music { background-image: asset-data-url('music.png') }
+.force-precompile-nature { background-image: asset-data-url('nature.png') }
+.force-precompile-nightlife { background-image: asset-data-url('nightlife.png') }
+.force-precompile-other { background-image: asset-data-url('other.png') }
+.force-precompile-party { background-image: asset-data-url('party.png') }
+.force-precompile-pets { background-image: asset-data-url('pets.png') }
+.force-precompile-photography { background-image: asset-data-url('photography.png') }
+.force-precompile-pizza { background-image: asset-data-url('pizza.png') }
+.force-precompile-pool { background-image: asset-data-url('pool.png') }
+.force-precompile-religion { background-image: asset-data-url('religion.png') }
+.force-precompile-restaurant { background-image: asset-data-url('restaurant.png') }
+.force-precompile-science { background-image: asset-data-url('science.png') }
+.force-precompile-service { background-image: asset-data-url('service.png') }
+.force-precompile-shopping { background-image: asset-data-url('shopping.png') }
+.force-precompile-sports { background-image: asset-data-url('sports.png') }
+.force-precompile-television { background-image: asset-data-url('television.png') }
+.force-precompile-tourism { background-image: asset-data-url('tourism.png') }
+.force-precompile-travel { background-image: asset-data-url('travel.png') }

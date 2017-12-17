@@ -13,9 +13,10 @@ rm -f /app/tmp/pids/server.pid
 su - wissle
 
 # Migrate relational data
-bundle exec rake db:migrate
+bundle exec rails db:migrate
 
 # Build assets
+bundle exec rails assets:clobber
 bundle exec rails assets:precompile
 
 # Start app server

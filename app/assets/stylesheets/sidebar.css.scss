@@ -1,0 +1,65 @@
+//Icons css
+.fa-bars {
+  position: absolute;
+  font-size: 2em;
+  z-index: 6000;
+  color: #000000;
+  top: 0.2em;
+  left: 0.5em;
+}
+
+.fa-user-circle-o {
+  font-size: 6em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+}
+
+.fa-check, .fa-times {
+  font-size: 2em;
+}
+
+.fa-pencil {
+  margin-left: 3px;
+}
+
+//General sidebar css
+
+.sidebar {
+  position: absolute;
+  padding: 2.5em 10px 0 10px;
+  z-index: 5000;
+  height: 100vh;
+  width: 20em;
+  background: #8d1717;
+  color: #ffffff;
+  text-align: center;
+}
+
+//User css
+.userinfo {
+  text-align: center;
+}
+
+.userinput {
+  display: flex;
+}
+
+//Navigation css
+nav ul {
+  margin: 0;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  height: 3em;
+  display: block;
+}
+
+nav a:hover {
+  color: #424242;
+}

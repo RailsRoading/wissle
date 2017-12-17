@@ -1,0 +1,132 @@
+$(document).ready(function() {
+  $('#form-wissle').submit(function(e) {
+    e.preventDefault();
+
+    createWissle(
+      $('#modal-create-wissle-text').val(),
+      $('#modal-create-wissle-category').val(),
+      function() {
+        $('#modal-create-wissle-text').val('');
+        $('#modal-create-wissle').foundation('close');
+
+        showWissles();
+      });
+  });
+});
+
+function showCreateWissle() {
+  $('#modal-create-wissle').foundation('open');
+
+  position.geocoder.geocode({ location: position.current.getPosition() }, function(results, status) {
+    if (status === 'OK') {
+      if (results[0]) {
+        $('#modal-create-wissle-address').html(results[0].formatted_address);
+      } else {
+        $('#modal-create-wissle-address').html('<i>No address found</i>');
+      }
+    } else {
+      showAlert(status);
+    }
+  });
+}
+
+function showWissle(id) {
+  var $modal = new Foundation.Reveal($('#modal-show-wissle'));
+
+  getWissle(id, (wissle) => {
+    $modal.open();
+
+    $('#modal-show-wissle-text').html(wissle.text);
+    $('#modal-show-wissle-user').html(wissle.user.data.username + ' (' + wissle.user.data.age + ')');
+    $('#modal-show-wissle-timestamp').html(moment(wissle.created_at * 1000).fromNow());
+    $('#modal-show-wissle-category').html(wissle.category);
+
+    // Geocoded address
+    position.geocoder.geocode({ location: { lat: wissle.latitude, lng: wissle.longitude } }, function(results, status) {
+      if (status === 'OK') {
+        if (results[0]) {
+          $('#modal-show-wissle-address').html(results[0].formatted_address);
+        } else {
+          $('#modal-show-wissle-address').html('<i>No address found</i>');
+        }
+      } else {
+        showAlert(status);
+      }
+    });
+
+  })
+}
+
+var markers = {
+  art: '<%= asset_path "art.png" %>',
+  automotive: '<%= asset_path "automotive.png" %>',
+  breakfast: '<%= asset_path "breakfast.png" %>',
+  business: '<%= asset_path "business.png" %>',
+  clothing: '<%= asset_path "clothing.png" %>',
+  coffee: '<%= asset_path "coffee.png" %>',
+  community: '<%= asset_path "community.png" %>',
+  computer: '<%= asset_path "computer.png" %>',
+  concert: '<%= asset_path "concert.png" %>',
+  dance: '<%= asset_path "dance.png" %>',
+  drinks: '<%= asset_path "drinks.png" %>',
+  education: '<%= asset_path "education.png" %>',
+  electronics: '<%= asset_path "electronics.png" %>',
+  engineering: '<%= asset_path "engineering.png" %>',
+  entertainment: '<%= asset_path "entertainment.png" %>',
+  event: '<%= asset_path "event.png" %>',
+  exhibition: '<%= asset_path "exhibition.png" %>',
+  fashion: '<%= asset_path "fashion.png" %>',
+  festival: '<%= asset_path "festival.png" %>',
+  financial: '<%= asset_path "financial.png" %>',
+  food: '<%= asset_path "food.png" %>',
+  games: '<%= asset_path "games.png" %>',
+  halloween: '<%= asset_path "halloween.png" %>',
+  internet: '<%= asset_path "internet.png" %>',
+  jewelry: '<%= asset_path "jewelry.png" %>',
+  karaoke: '<%= asset_path "karaoke.png" %>',
+  literature: '<%= asset_path "literature.png" %>',
+  meetup: '<%= asset_path "meetup.png" %>',
+  movie: '<%= asset_path "movie.png" %>',
+  museum: '<%= asset_path "museum.png" %>',
+  music: '<%= asset_path "music.png" %>',
+  nature: '<%= asset_path "nature.png" %>',
+  nightlife: '<%= asset_path "nightlife.png" %>',
+  other: '<%= asset_path "other.png" %>',
+  party: '<%= asset_path "party.png" %>',
+  pets: '<%= asset_path "pets.png" %>',
+  photography: '<%= asset_path "photography.png" %>',
+  pizza: '<%= asset_path "pizza.png" %>',
+  pool: '<%= asset_path "pool.png" %>',
+  religion: '<%= asset_path "religion.png" %>',
+  restaurant: '<%= asset_path "restaurant.png" %>',
+  science: '<%= asset_path "science.png" %>',
+  service: '<%= asset_path "service.png" %>',
+  shopping: '<%= asset_path "shopping.png" %>',
+  sports: '<%= asset_path "sports.png" %>',
+  television: '<%= asset_path "television.png" %>',
+  tourism: '<%= asset_path "tourism.png" %>',
+  travel: '<%= asset_path "travel.png" %>',
+
+}
+
+function showWissles() {
+  getWissles((wissles) => {
+    position.wissles = wissles.map((wissle) => {
+      var marker = new google.maps.Marker({
+        position: {lat: wissle.latitude, lng: wissle.longitude},
+        map: position.map,
+        title: wissle.text,
+        icon: '/assets/markers' + markers[wissle.category.toLowerCase()]
+      });
+
+      marker.addListener('click', function () {
+        showWissle(wissle.id);
+      });
+
+      return {
+        ...wissle,
+        marker: marker
+      }
+    });
+  });
+}

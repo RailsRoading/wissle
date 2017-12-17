@@ -46,7 +46,7 @@ function geolocate() {
       if (position.current) {
         position.current.setPosition(newPosition);
       } else {
-        position.current = new google.maps.Marker({ position: newPosition, map: position.map, icon: '/assets/bluedot.png' });
+        position.current = new google.maps.Marker({ position: newPosition, map: position.map, icon: '<%= asset_path 'bluedot.png' %>' });
       }
 
       position.map.panTo(newPosition);

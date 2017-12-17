@@ -10,16 +10,53 @@
 
 Category.transaction do
   %w[
-    Coffee
-    Drinks
-    Food
-    Sports
-    Games
-    Film
     Art
+    Automotive
+    Breakfast
+    Business
+    Clothing
+    Coffee
+    Community
+    Computer
+    Concert
+    Dance
+    Drinks
+    Education
+    Electronics
+    Engineering
+    Entertainment
+    Event
+    Exhibition
+    Fashion
+    Festival
+    Financial
+    Food
+    Games
+    Halloween
+    Internet
+    Jewelry
+    Karaoke
     Literature
+    Meetup
+    Movie
+    Museum
     Music
+    Nature
+    Nightlife
     Party
+    Pets
+    Photography
+    Pizza
+    Pool
+    Religion
+    Restaurant
+    Science
+    Service
+    Shopping
+    Sports
+    Television
+    Tourism
+    Travel
     Other
   ].each do |title|
     Category.create! :title => title

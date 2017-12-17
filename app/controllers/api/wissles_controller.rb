@@ -14,6 +14,7 @@ module Api
     # POST /
     def create
       @resource = Wissle.new wissle_params.merge(:user_id => current_user.id)
+                                          .merge(:category => Category.find_by(:title => wissle_params[:category]))
 
       if @resource.save
         render :show, :status => :created
@@ -46,7 +47,8 @@ module Api
       params.require(:data).permit :user_id,
                                    :text,
                                    :longitude,
-                                   :latitude
+                                   :latitude,
+                                   :category
     end
   end
 end

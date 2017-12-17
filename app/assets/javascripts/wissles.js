@@ -4,6 +4,7 @@ $(document).ready(function() {
 
     createWissle(
       $('#modal-create-wissle-text').val(),
+      $('#modal-create-wissle-category').val(),
       function() {
         $('#modal-create-wissle-text').val('');
         $('#modal-create-wissle').foundation('close');

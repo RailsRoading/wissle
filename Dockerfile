@@ -26,11 +26,6 @@ RUN bundle install --deployment --without development test
 COPY . /app/
 
 ##
-# Build public assets
-#
-RUN bundle exec rails assets:precompile
-
-##
 # Run application
 #
 CMD /app/docker-entrypoint.sh

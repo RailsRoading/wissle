@@ -15,5 +15,8 @@ su - wissle
 # Migrate relational data
 bundle exec rake db:migrate
 
+# Build assets
+bundle exec rails assets:precompile
+
 # Start app server
 bundle exec puma -b unix:///app/tmp/sockets/puma.sock

@@ -9,36 +9,41 @@
 <i class="fa fa-bars" id="hamburgerIcon"></i>
 
 <div id="sidebar" class="sidebar">
+  <div class="topnav">
 
-  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-  <div class="userinfo" id="userinfo"></div>
+    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    <div class="userinfo" id="userinfo"></div>
 
-  <div class="userinput" id="userinput">
-    <input type="text" placeholder="Username">
-    <input type="text" placeholder="Age">
-    <i class="fa fa-check" id="check" aria-hidden="true"></i>
-    <i class="fa fa-times" id="cancel" aria-hidden="true"></i>
+    <div class="userinput" id="userinput">
+      <input type="text" placeholder="Username" class="usernameInput" id="usernameInput">
+      <input type="text" placeholder="Age" class="ageInput" id="ageInput">
+      <i class="fa fa-check" id="check" aria-hidden="true"></i>
+      <i class="fa fa-times" id="cancel" aria-hidden="true"></i>
+    </div>
+    <hr>
+
+    <nav role="navigation">
+      <ul>
+        <li>
+          <a href="/tags">Tags</a>
+        </li>
+        <li>
+          <a href="/wissle">Wissles</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <hr>
-
-  <nav role="navigation">
+  <div class="bottomnav">
+    <hr>
     <ul>
       <li>
-        <a href="/tags">Tags</a>
+        <a href="">Help and support</a>
       </li>
       <li>
-        <a href="/wissle">Wissles</a>
+        <a href="/tos">Terms of service</a>
       </li>
-      <div class="bottomnav">
-        <li>
-          <a href="">Help and support</a>
-        </li>
-        <li>
-          <a href="/tos">Terms of service</a>
-        </li>
-      </div>
     </ul>
-  </nav>
+  </div>
 </div>
 
 <div id="map"></div>

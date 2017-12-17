@@ -26,7 +26,9 @@ module Api
     # PUT/PATCH /:id
     def update
       @resource = User.find params[:id]
-      user_params[:tags].uniq.each { |t| @resource.tags << Tag.find(t.to_i) }
+      if user_params.has_key?(:tags)
+        user_params[:tags].uniq.each { |t| @resource.tags << Tag.find(t.to_i) }
+      end
 
       # Allow current_user only to update his/her own account
       return head :forbidden unless current_user && @resource == current_user

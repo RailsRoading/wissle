@@ -62,7 +62,8 @@ function showWissles() {
       var marker = new google.maps.Marker({
         position: {lat: wissle.latitude, lng: wissle.longitude},
         map: position.map,
-        title: wissle.text
+        title: wissle.text,
+        icon: '/assets/markers/' + wissle.category.toLowerCase() + '.png'
       });
 
       marker.addListener('click', function () {

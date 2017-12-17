@@ -35,3 +35,7 @@ body {
 
   z-index: 9999;
 }
+
+.force-image-precompilation {
+  background-image: asset-data-url("bluedot.png");
+}

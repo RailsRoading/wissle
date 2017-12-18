@@ -14,6 +14,7 @@ class Tag < ApplicationRecord
   #
   validates :title,
             :presence => true,
+            :uniqueness => true,
             :length => { :in => 2..30 }
 
   ##

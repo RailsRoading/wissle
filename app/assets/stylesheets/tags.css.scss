@@ -16,7 +16,7 @@
   width: 100%;
 }
 
-.inline{
+.inline {
   display: inline-block;
 }
 
@@ -28,7 +28,7 @@
   margin-bottom: 10%;
 }
 
-#ui-id-1{
+#ui-id-1 {
   list-style: none;
   background-color: white;
   width: 78%;
@@ -47,4 +47,12 @@
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.switch.small input:checked ~ .switch-paddle::after {
+  left: 3.4rem;
+}
+
+.switch-paddle {
+  width: 5rem!important;
 }

@@ -10,36 +10,35 @@ $(document).ready(function() {
         "Authorization": window.localStorage.getItem("user.uuid")
       },
       success: function(data) {
+
         for (var i = 0; i < data.length; i++) {
           all_tags.push({
             label: data[i].data.title,
             value: data[i].data.title,
             id: data[i].data.id
+
           });
         }
-        for (var i = 0; i < $(".tag-div").length; i++) {
-          $(".tag-div")[i].children[0].innerHTML = (data[i].data.title);
-          $($(".tag-div")[i].children[1]).attr("id", data[i].data.id);
-          data.splice(i, 1);
+
+        for (var i = 0; i < $(".switchclass").length; i++) {
+          $($(".switchclass")[i]).parent().parent().find("p").first().text(data[i].data.title);
+          $($(".switchclass")[i]).attr("data-id", data[i].data.id);
         }
 
-        for (var i = 0; i < $(".tag-button").length; i++) {
-          $($(".tag-button")[i]).text(data[i].data.title);
-        }
+        $(".switchclass").click(function() {
+          if ($(this).is(":checked")) {
+            selected_tag_ids.push($(this).attr("data-id"))
+          } else {
+            var index = selected_tag_ids.indexOf($(this).attr("data-id"));
+            selected_tag_ids.splice(index, 1);
+          }
+        });
 
         $("#tags").autocomplete({
           source: all_tags,
           focus: function(event, ui) {
             selected_tag_ids.push(ui.item.id);
           },
-        });
-
-        $(".clickable").click(function() {
-          selected_tag_ids.push(this.id);
-          this.setAttribute("disabled", "true");
-          if ($(this).attr("disabled") == "disabled") {
-            $(this).removeAttr("disabled");
-          }
         });
         $(".start_wissle").click(function() {
           $.ajax({

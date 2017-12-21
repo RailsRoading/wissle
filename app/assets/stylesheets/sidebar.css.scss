@@ -28,6 +28,14 @@
   margin-left: 3px;
 }
 
+//Overlay css
+.overlay {
+  position: absolute;
+  z-index: 4;
+  height: 100vh;
+  width: 100vw;
+}
+
 //General sidebar css
 .sidebar {
   position: absolute;

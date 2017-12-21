@@ -6,10 +6,10 @@
 <%= render 'partials/modals/wissle/show' %>
 <%= render 'partials/modals/wissle/create' %>
 
-<button class="button large button-menu" id="hamburgerIcon" type="button" title="Menu">
+<button class="button large button-menu" id="hamburgerIcon" type="button" title="Menu" onclick="toggleMenu()">
   <i class="fa fa-bars"></i>
 </button>
-
+<div class="overlay" onclick="toggleMenu()"></div>
 <div id="sidebar" class="sidebar">
   <div class="topnav">
 
@@ -51,11 +51,13 @@
 <div id="map"></div>
 
 <!-- Create wissle button -->
-<button class="button large button-create-wissle" type="button" title="Create Wissle" onClick="showCreateWissle()">
+<button class="button large button-create-wissle" type="button" title="Create Wissle" onclick="showCreateWissle()">
   <!-- Screen readers will see "close" -->
   <span class="show-for-sr">Create Wissle</span>
   <!-- Visual users will see the X, but not the "Close" text -->
-  <span aria-hidden="true"><i class="fa fa-plus"></i></span>
+  <span aria-hidden="true">
+    <i class="fa fa-plus"></i>
+  </span>
 </button>
 
 <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrZXiqfEJDK66oHoZqqmR8ItDzEsOx5Wo&callback=initMap"></script>

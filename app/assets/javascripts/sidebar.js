@@ -1,49 +1,87 @@
 $(function() {
-// initial page settings
-  $("#sidebar").hide();
-  $("#userinput").hide();
-  // Add user, temporary, fix ajax
-  $("#userinfo").append('Bob, 20 <span><i class="fa fa-pencil"></i></span>');
-
-// Toggle hamburger menu
-  $("#hamburgerIcon").click(function() {
-    $("#sidebar").toggle();
-  });
-
-// Edit username/age
-  $(".fa-pencil").click(function(){
-    $("#userinfo").hide();
-    $("#userinput").show();
-  });
-
-// Accept username/age changes
-  $("#check").click(function(){
-    $("#userinfo").show();
-    $("#userinput").hide();
-  });
-
-// Cancel username/age changes
-  $("#cancel").click(function(){
-    $("#userinfo").show();
-    $("#userinput").hide();
-  });
-});
-
-/*function getUserInfo(){
+  var url = 'api/users/' + window.localStorage.getItem('user.id');
   $.ajax({
-    url: '/api/users',
+    url: url,
     dataType: 'json',
     contentType: 'application/json',
     method: 'GET',
     headers: {
-
+      'Authorization': window.localStorage.getItem('user.uuid')
     },
 
     success: function(data) {
-      $("#userinfo").append("<p>${data.username}, ${data.age}<p>")
+      var userinfo = data.data.username + ', ' + data.data.age;
+      insertUserInfo(userinfo);
+      setInputValue();
     },
     error: function(error) {
       showAlert(error.responseJSON.errors.join(', '));
     }
-  })
-}*/
+  });
+
+  // initial page settings
+  $("#sidebar").hide();
+  $(".overlay").hide();
+  $("#userinput").hide();
+
+  // Accept username/age changes
+  $("#check").click(function() {
+    EditUserInfo($("#usernameInput").val(), $("#ageInput").val());
+    toggleUserInput();
+  });
+
+  // Cancel username/age changes
+  $("#cancel").click(function() {
+    toggleUserInput();
+    setInputValue();
+  });
+});
+
+function insertUserInfo(userinfo) {
+  $("#userinfo").empty();
+  $("#userinfo").append(userinfo + ' <span><i class="fa fa-pencil" onclick="toggleUserInput()"></i></span>');
+}
+
+function setInputValue() {
+  $('#usernameInput').val(window.localStorage.getItem('user.username'));
+  $('#ageInput').val(window.localStorage.getItem('user.age'));
+}
+
+function toggleMenu() {
+  $("#sidebar").toggle();
+  $(".overlay").toggle();
+}
+
+function toggleUserInput() {
+  $("#userinfo").toggle();
+  $("#userinput").toggle();
+}
+
+function EditUserInfo(username, age) {
+  var url = 'api/users/' + window.localStorage.getItem('user.id');
+  $.ajax({
+    url: url,
+    dataType: 'json',
+    contentType: 'application/json',
+    method: 'PUT',
+    headers: {
+      'Authorization': window.localStorage.getItem('user.uuid')
+    },
+    data: JSON.stringify({
+      data: {
+        username: username,
+        age: age
+      }
+    }),
+    success: function(data) {
+      window.localStorage.setItem('user.username', data.data.username);
+      window.localStorage.setItem('user.age', data.data.age);
+      var userinfo = data.data.username + ', ' + data.data.age;
+      insertUserInfo(userinfo);
+      setInputValue();
+    },
+    error: function(error) {
+      showAlert(error.responseJSON.errors.join(', '));
+    }
+  });
+}

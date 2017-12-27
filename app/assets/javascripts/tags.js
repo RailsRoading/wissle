@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  if (window.location.pathname == "/tags") {
+  if (window.location.pathname === "/tags") {
     var all_tags = [];
     var selected_tag_ids = [];
     $.ajax({
@@ -55,16 +55,16 @@ $(document).ready(function() {
               }
             }),
             success: function(data) {
-              window.location.replace("/map");
+              window.location.assign("/map");
             },
             error: function(error) {
-              showAlert(error);
+              handleApiError(error);
             }
           });
         });
       }, //closes success
       error: function(error) {
-        showAlert(error);
+        handleApiError(error);
       }
     }); //ajax call
   }

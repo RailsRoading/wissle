@@ -1,40 +1,42 @@
 $(function() {
-  var url = 'api/users/' + window.localStorage.getItem('user.id');
-  $.ajax({
-    url: url,
-    dataType: 'json',
-    contentType: 'application/json',
-    method: 'GET',
-    headers: {
-      'Authorization': window.localStorage.getItem('user.uuid')
-    },
+  if (window.location.pathname === '/map') {
+    var url = 'api/users/' + window.localStorage.getItem('user.id');
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      contentType: 'application/json',
+      method: 'GET',
+      headers: {
+        'Authorization': window.localStorage.getItem('user.uuid')
+      },
 
-    success: function(data) {
-      var userinfo = data.data.username + ', ' + data.data.age;
-      insertUserInfo(userinfo);
+      success: function (data) {
+        var userinfo = data.data.username + ', ' + data.data.age;
+        insertUserInfo(userinfo);
+        setInputValue();
+      },
+      error: function (error) {
+        handleApiError(error);
+      }
+    });
+
+    // initial page settings
+    $("#sidebar").hide();
+    $(".overlay").hide();
+    $("#userinput").hide();
+
+    // Accept username/age changes
+    $("#check").click(function () {
+      EditUserInfo($("#usernameInput").val(), $("#ageInput").val());
+      toggleUserInput();
+    });
+
+    // Cancel username/age changes
+    $("#cancel").click(function () {
+      toggleUserInput();
       setInputValue();
-    },
-    error: function(error) {
-      showAlert(error.responseJSON.errors.join(', '));
-    }
-  });
-
-  // initial page settings
-  $("#sidebar").hide();
-  $(".overlay").hide();
-  $("#userinput").hide();
-
-  // Accept username/age changes
-  $("#check").click(function() {
-    EditUserInfo($("#usernameInput").val(), $("#ageInput").val());
-    toggleUserInput();
-  });
-
-  // Cancel username/age changes
-  $("#cancel").click(function() {
-    toggleUserInput();
-    setInputValue();
-  });
+    });
+  }
 });
 
 function insertUserInfo(userinfo) {
@@ -81,7 +83,7 @@ function EditUserInfo(username, age) {
       setInputValue();
     },
     error: function(error) {
-      showAlert(error.responseJSON.errors.join(', '));
+      handleApiError(error);
     }
   });
 }

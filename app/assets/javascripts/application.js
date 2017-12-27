@@ -22,20 +22,3 @@ $(function(){
   // Hide alert by default
   hideAlert();
 });
-
-function getTags() {
-  $.ajax({
-    url: '/api/tags',
-    dataType: 'json',
-    contentType: 'json',
-    headers: {
-      'Authorization': window.localStorage.getItem('user.uuid')
-    },
-    success: function(data) {
-      console.log(data);
-    },
-    error: function(error) {
-      showAlert(error);
-    }
-  })
-}

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  if (window.location.pathname == "/tags") {
+  if (window.location.pathname === "/tags") {
     var all_tags = [];
     var selected_tag_ids = [];
     $.ajax({
@@ -55,7 +55,7 @@ $(document).ready(function() {
               }
             }),
             success: function(data) {
-              window.location.replace("/map");
+              window.location.assign("/map");
             },
             error: function(error) {
               handleApiError(error);

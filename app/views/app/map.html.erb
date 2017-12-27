@@ -1,6 +1,6 @@
 <script>
   if (window.localStorage.getItem('user.uuid') === null)
-    window.location.replace('/user');
+    window.location.assign('/user');
 </script>
 
 <%= render 'partials/modals/wissle/show' %>

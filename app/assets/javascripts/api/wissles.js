@@ -12,7 +12,7 @@ function getWissles(callback) {
       callback(wissles);
     },
     error: function(error) {
-      showAlert(error);
+      handleApiError(error);
     }
   })
 }
@@ -29,7 +29,7 @@ function getWissle(id, callback) {
       callback(data.data);
     },
     error: function(error) {
-      showAlert(error);
+      handleApiError(error);
     }
   })
 }
@@ -53,7 +53,7 @@ function createWissle(text, category, callback) {
     }),
     success: callback,
     error: function(error) {
-      showAlert(error);
+      handleApiError(error);
     }
   })
 }

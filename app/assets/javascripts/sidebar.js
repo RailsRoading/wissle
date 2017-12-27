@@ -15,7 +15,7 @@ $(function() {
       setInputValue();
     },
     error: function(error) {
-      showAlert(error.responseJSON.errors.join(', '));
+      handleApiError(error);
     }
   });
 
@@ -81,7 +81,7 @@ function EditUserInfo(username, age) {
       setInputValue();
     },
     error: function(error) {
-      showAlert(error.responseJSON.errors.join(', '));
+      handleApiError(error);
     }
   });
 }

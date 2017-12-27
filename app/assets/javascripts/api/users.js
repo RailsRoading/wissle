@@ -20,7 +20,7 @@ function createUser(username, age, callback) {
       callback();
     },
     error: function(error) {
-      showAlert(error.responseJSON.errors.join(', '));
+      handleApiError(error);
     }
   })
 }

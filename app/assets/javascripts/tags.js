@@ -58,13 +58,13 @@ $(document).ready(function() {
               window.location.replace("/map");
             },
             error: function(error) {
-              showAlert(error);
+              handleApiError(error);
             }
           });
         });
       }, //closes success
       error: function(error) {
-        showAlert(error);
+        handleApiError(error);
       }
     }); //ajax call
   }
